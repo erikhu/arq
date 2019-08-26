@@ -92,11 +92,14 @@ def solver(m,p):
 			#si es falso entonces no se puede sol
             return m
 
+        #len(m) = p
         for j in range(i+1,len(m)):
 			#multiplica y suma para hacer ceros columna hacia abajo
             m[j] = adic(m[j], multi(m[i], -1*float(m[j][i])))
-
+#hace ceros las columnas arriba de la diagonal
+#recorre desde p-1(fila superior) hasta 0
     for k in range(p-1, -1, -1):
+		#recorre desde k-1(columna de la misma fila) hasta 0
         for l in range(k-1, -1, -1):
             m[l] = adic(m[l], multi(m[k], -1*float(m[l][k])))
 
