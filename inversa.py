@@ -5,7 +5,7 @@ dimx = 0
 dimy = 0
 mini = 0
 
-#  --- Se definen funciones/metodos ---  #
+# --- Se definen funciones/metodos ---  #
 # Generado de la matriz
 def generador(y,x):
     mat = []
