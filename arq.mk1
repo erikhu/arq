@@ -1,0 +1,23 @@
+!define BLANK ""
+C:\users\salpicon\proyecto\arq\main.obj : C:\users\salpicon\proyecto\arq\mai&
+n.cpp .AUTODEPEND
+ @C:
+ cd C:\users\salpicon\proyecto\arq
+ *wpp386 main.cpp -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -&
+bt=nt -fo=.obj -mf -xs -xr
+
+C:\users\salpicon\proyecto\arq\arq.exe : C:\users\salpicon\proyecto\arq\main&
+.obj .AUTODEPEND
+ @C:
+ cd C:\users\salpicon\proyecto\arq
+ @%write arq.lk1 FIL main.obj
+ @%append arq.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b arq.imp 
+ @%append arq.lk1 LIBR arq.imp
+!endif
+!ifneq BLANK ""
+ @%append arq.lk1 
+!endif
+ *wlink name arq d all sys nt op m op maxe=25 op q op symf @arq.lk1
+
