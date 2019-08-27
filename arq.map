@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Aug 18 2019 01:22:03 (32-bit)
 Copyright (c) 2002-2019 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       19/08/27 16:08:39
+Created on:       19/08/27 17:33:01
 Executable Image: arq.exe
 creating a Windows NT character-mode executable
 
@@ -58,11 +58,11 @@ Address        Symbol
 =======        ======
 
 Module: main.obj(z:\home\erik\proyectos\c++\arq\main.cpp)
-00401438+      __near std::allocator<char __near >::~allocator()
-0040146b+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
-0040156c+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
+00401439+      __near std::allocator<char __near >::~allocator()
+0040146c+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
+0040156d+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
 0040c360+      int unsigned const __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::npos
-00401633+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
+00401634+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
 00401010       main_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stkwnt.asm)
 004016b5       __CHK
@@ -720,4 +720,4 @@ C:\WATCOM\lib386\nt\clib3r.lib
 Stack size:  00100000 (1048576.)
 Memory size:  d9ed (55789.)
 Entry point address: 00401c20
-Link time: 00:00.81
+Link time: 00:00.71

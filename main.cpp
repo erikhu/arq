@@ -2,7 +2,7 @@
 #include <vector>
 int main(){
 	int h = 4; // # de filas de la matrix
-	int w = 8; // ancho de columna
+	int w = 2*h; // ancho de columna
 	double aux_val; // variable que puede ser usada cada que se requiera operar con doble precision
 	int iaux_val; // variable que puede ser usada en cualquier momento que se requiera operar con enteros
 	int pointery = 0; // se usa para saber la posicion de la fila superior
@@ -11,6 +11,7 @@ int main(){
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
 	double matrix[32] = {1,4,6,1,1,0,0,0,5,3,9,1,0,1,0,0,6,3,5,7,0,0,1,0,5,7,7,1,0,0,0,1};
+
 
 	int contador = 0;
 
@@ -76,19 +77,19 @@ int main(){
 			LOOP intercambio				;decrementa cx y termina cuando cx es cero
 
 
-			MOV esi, 00h
-			MOV ecx, w
-			remplazo:							;etiqueta que apunta hacia el intercambio de filas
-				MOV edi, esi
-				FLD aux[esi]
-				MOV eax, 08h
-				MUL w
-				MUL p_auxy
-				ADD esi, eax
-				FSTP matrix[esi]
-				MOV esi, edi
-				ADD esi, 08h
-				LOOP remplazo
+			MOV esi, 00h						;reinicio del indice
+			MOV ecx, w							;contador ecx como el tamano de las columnas o el ancho de alguna fila
+			remplazo:								;etiqueta que apunta hacia el intercambio de filas
+				MOV edi, esi					;guarda el indice en otro registro para luego ser utilizado
+				FLD aux[esi]					;apila el valor de la columna de la fila para luego reemplazar
+				MOV eax, 08h					;asignacion a eax el tamano del tipo double
+				MUL w									;encontramos el tamano en bytes por fila
+				MUL p_auxy						;encontramos la posicion de la fila en la matrix
+				ADD esi, eax					;asigna la posicion para encontrar el valor a reemplazar
+				FSTP matrix[esi]			;asigna el nuevo valor a la matrix
+				MOV esi, edi					;regresa al ultimo valor del indice
+				ADD esi, 08h					;aumenta una posicion en el indice para aux
+				LOOP remplazo					;decrementa cx y termina cuando cx es cero
 		}
     //mostrar fila
 		for(int i = 0 ; i < 32; i++){
