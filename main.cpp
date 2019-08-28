@@ -12,6 +12,7 @@ int main(){
 	int convertir = true;
 	double c_mul; // valor numero que se multiplica con fila
 	double diagonal;
+	double negativo = -1;
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
 	double matrix[32] = {0,0,6,1,1,0,0,0,0,5,9,1,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
@@ -32,9 +33,9 @@ int main(){
 	  _asm {
 		FINIT
 		MOV ebx, 0
-		while1:
-		CMP ebx, h				  ;se verifica que la matrix tenga el mismo ancho y alto
-			JGE end_while1	 	  ;si no son iguales se concluye que no puede solucionarse
+		while1:																;Sistema de resolucion Gauss Jordan
+		CMP ebx, h				  									;se verifica que la matrix tenga el mismo ancho y alto
+			JGE end_while1	 	  								;si no son iguales se concluye que no puede solucionarse
 				MOV eax, 08h
 				MUL w
 				MUL ebx
@@ -50,15 +51,15 @@ int main(){
 				FTST
         FNSTSW ax
         SAHF
-				JNE end_if1; compara si la diagonal no es cero
+				JNE end_if1												; compara si la diagonal no es cero
 					MOV pointery, ebx
-					FFREE st(0)	;libera la posicion tope
+					FFREE st(0)											;libera la posicion tope
 					MOV eax, h
 					DEC eax
 					CMP ebx, eax
-					JGE error; si la fila actual es igual o mayor a las filas de la matriz entonces no tiene solucion
+					JGE error												; si la fila actual es igual o mayor a las filas de la matriz entonces no tiene solucion
 						MOV ecx, ebx
-						filas_abajo: ;recorre las filas inferiores en busca de alguna
+						filas_abajo: 									;recorre las filas inferiores en busca de alguna
 							MOV eax, 08h
 							MUL w
 							MUL ecx
@@ -71,44 +72,44 @@ int main(){
 							FTST
 							FNSTSW ax
 							SAHF
-							JE continuar_filas_abajo	; si es cero continua el recorrido
+							JE continuar_filas_abajo
 								FSTP diagonal
 								MOV p_auxy, ecx
-								MOV eax, 08h							;asignacion a eax el tamano del tipo double
+								MOV eax, 08h
 								MUL w											;encontramos el tamano en bytes por fila
 								MUL pointery							;encontramos la posicion de la fila superior en la matrix
-								MOV esi, eax							;asignamos la posicion de la fila superior en el indice
+								MOV esi, eax
 								MOV ecx, w								;reinicia contador para recorrer todas las columnas de la fila superior
 								intercambio:							;etiqueta que apunta hacia el intercambio de filas
-								  FLD matrix[esi]					;apila el valor de la columna de la fila superior para luego intercambiar
-								  MOV edi, esi						;guardar temporalmente el indice que se usara luego para intercambiar valores
-								  MOV iaux_val1, ecx						;guardar temporalmente el registro contador para luego retomar su ultimo valor
-								  FILD p_auxy							;apila la posicion de la fila inferior que sera restado con la posicion de la superior
-								  FILD pointery						;apila la posicion de la fila superior
-								  FSUB										;se resta la posicion de la fila superior con la inferior
-								  FISTP iaux_val					;asigna el resultado anterior en la variable auxiliar para enteros
-								  MOV eax, 08h						;asignacion a eax el tamano del tipo double
+								  FLD matrix[esi]
+								  MOV edi, esi
+								  MOV iaux_val1, ecx
+								  FILD p_auxy
+								  FILD pointery
+								  FSUB
+								  FISTP iaux_val
+								  MOV eax, 08h
 								  MUL w										;encontramos el tamano en bytes por fila
 								  MUL iaux_val						;encontramos la posicion de la fila inferior en la matrix
 								  ADD esi, eax						;asignamos el indice para la fila inferior
-								  MOV ecx, iaux_val1						;volvemos a agregar a ecx el contador que se guardo en ebx para poder continuar el ciclo
+								  MOV ecx, iaux_val1
 								  FLD matrix[esi]					;asigna el valor de la columna de la fila inferior
-								  FSTP aux_val						;guarda temporalmente el valor de la columna de la fila inferior
+								  FSTP aux_val
 								  FSTP matrix[esi]				;remplaza la columna de la fila superior en la fila inferior
 								  MOV esi, edi						;reestablece el indice de la fila superior
-								  FLD aux_val							;apila el valor de la columna anterior de la fila inferior
+								  FLD aux_val
 								  FSTP matrix[esi]				;remplaza la columna de la fila superior en el auxiliar
 								  ADD esi, 08h						;apunta a la siguiente posicion en la matrix
-								  LOOP intercambio				;decrementa cx y termina cuando cx es cero
+								  LOOP intercambio
 								JMP end_if1
 						continuar_filas_abajo:
 							MOV eax, h
 							DEC eax
 							CMP ecx, eax
-							JGE error; la matriz no tiene solucion
+							JGE error										; la matriz no tiene solucion
 								INC ecx
 								JMP filas_abajo
-				end_if1:; termina el intercambio y pasa a convertir en 1 las diagonales
+				end_if1:													; termina el intercambio y pasa a convertir en 1 las diagonales
 				FFREE st(0)
 				FLD1
 				FLD diagonal
@@ -118,18 +119,52 @@ int main(){
 				MUL w
 				MUL ebx
 				MOV esi, eax
-				MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
-				multiplicacion:   				;marca de inicio para la multiplicacion de una lista por una constante
-				  FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
-				  FLD matrix[esi]    				;apila el valor de la matriz para multiplicar con la constante
-				  FMUL										;multiplica la constante por el valor apilado de la matriz
-				  FSTP matrix[esi]						;desapilamos en la matriz el resultado de la multiplicacion
-				  ADD esi, 08h						;aumenta el indice para la liste de tipo double
-				  LOOP multiplicacion 		;decrementa el registro ecx y luego verifica que sea distinto de cero
+				MOV ecx, w        								;reinicia el valor del contador con el ancho de columna
+				multiplicacion:   								;marca de inicio para la multiplicacion de una lista por una constante
+				  FLD c_mul
+				  FLD matrix[esi]
+				  FMUL														;multiplica la constante por el valor apilado de la matriz
+				  FSTP matrix[esi]								;desapilamos en la matriz el resultado de la multiplicacion
+				  ADD esi, 08h
+				  LOOP multiplicacion
+
+				MOV edx, 0 ; linea en inversa 96
+				para_ceros:
+					MOV eax, h
+					DEC eax
+					CMP edx, eax
+					JGE end_while1
+						MOV ecx, w ; tener encuenta en caso de val extraños
+						MOV esi, 00h
+						asignar_aux: ; toda la fila de f+1
+							MOV edi, esi
+							MOV eax, 08h
+							MUL w
+							MUL ebx
+							MOV esi, eax
+							ADD esi, edi
+							FLD matrix[esi]
+							FSTP aux[edi]
+							MOV esi, edi
+							ADD esi, 08h
+							LOOP asignar_aux
+						MOV esi, 00h 							;reinicia el indice del registro esi para iniciar desde cero
+						MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
+						multiplicacion1:   				;marca de inicio para la multiplicacion de una lista por una constante
+							FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
+							FLD aux[esi]    				;apila el valor de la matriz para multiplicar con la constante
+							FMUL										;multiplica la constante por el valor apilado de la matriz
+							FSTP aux[esi]						;desapilamos en la matriz el resultado de la multiplicacion
+							ADD esi, 08h						;aumenta el indice para la liste de tipo double
+							LOOP multiplicacion1 		;decrementa el registro ecx y luego verifica que sea distinto de cero
+					INC edx
+					JMP para_ceros
 				INC ebx
 				JMP while1
 		end_while1:
+			JMP fin
 		error:
+		fin:
 		}
     //mostrar fila
 		contador = 0;
