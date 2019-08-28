@@ -10,7 +10,7 @@ int main(){
 	int pointery = 0; // se usa para saber la posicion de la fila superior
 	int p_auxy = 1; // la posicion de la fila inferior con la que se quiere intercambiar (este valor siempre debe ser mayor a pointery)
 	int convertir = true;
-	double c_mul = 2; // valor numero que se multiplica con fila
+	double c_mul; // valor numero que se multiplica con fila
 	double diagonal;
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
@@ -56,7 +56,7 @@ int main(){
 					MOV eax, h
 					DEC eax
 					CMP ebx, eax
-					JGE end_while1; si la fila actual es igual o mayor a las filas de la matriz entonces no tiene solucion
+					JGE error; si la fila actual es igual o mayor a las filas de la matriz entonces no tiene solucion
 						MOV ecx, ebx
 						filas_abajo: ;recorre las filas inferiores en busca de alguna
 							MOV eax, 08h
@@ -72,7 +72,7 @@ int main(){
 							FNSTSW ax
 							SAHF
 							JE continuar_filas_abajo	; si es cero continua el recorrido
-								FFREE st(0)
+								FSTP diagonal
 								MOV p_auxy, ecx
 								MOV eax, 08h							;asignacion a eax el tamano del tipo double
 								MUL w											;encontramos el tamano en bytes por fila
@@ -105,17 +105,31 @@ int main(){
 							MOV eax, h
 							DEC eax
 							CMP ecx, eax
-							JGE end_while1; la matriz no tiene solucion
+							JGE error; la matriz no tiene solucion
 								INC ecx
 								JMP filas_abajo
-				end_if1:
-				MOV eax, 0
-				CMP eax, convertir
-					JZ end_while1 ;convierte en 1 el numero de la diagonal
-						MOV eax, ebx
+				end_if1:; termina el intercambio y pasa a convertir en 1 las diagonales
+				FFREE st(0)
+				FLD1
+				FLD diagonal
+				FDIV
+				FSTP c_mul
+				MOV eax, 08h
+				MUL w
+				MUL ebx
+				MOV esi, eax
+				MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
+				multiplicacion:   				;marca de inicio para la multiplicacion de una lista por una constante
+				  FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
+				  FLD matrix[esi]    				;apila el valor de la matriz para multiplicar con la constante
+				  FMUL										;multiplica la constante por el valor apilado de la matriz
+				  FSTP matrix[esi]						;desapilamos en la matriz el resultado de la multiplicacion
+				  ADD esi, 08h						;aumenta el indice para la liste de tipo double
+				  LOOP multiplicacion 		;decrementa el registro ecx y luego verifica que sea distinto de cero
 				INC ebx
 				JMP while1
 		end_while1:
+		error:
 		}
     //mostrar fila
 		contador = 0;
