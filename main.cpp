@@ -128,7 +128,7 @@ int main(){
 
 				MOV iaux_val, ebx ; linea en inversa 96
 				INC iaux_val
-				para_ceros:
+				ceros_abajo:
 					MOV eax, h
 					CMP iaux_val, eax
 					JGE siguiente
@@ -184,11 +184,14 @@ int main(){
 						ADD esi, 08h 						;aumenta el indice para lista tipo double
 					  LOOP suma 							;descuenta el registro cx hasta recorrer la base
 					INC iaux_val
-					JMP para_ceros
+					JMP ceros_abajo
 				siguiente:
 				INC ebx
 				JMP while1
 		end_while1:
+		MOV ecx, h
+		ceros_arriba:
+
 			JMP fin
 		error:
 			MOV interrupcion, 1
