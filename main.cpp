@@ -102,7 +102,7 @@ int main(){
 								  ADD esi, 08h						;apunta a la siguiente posicion en la matrix
 								  LOOP intercambio
 								JMP end_if1
-						continuar_filas_abajo:
+							continuar_filas_abajo:
 							MOV eax, h
 							DEC eax
 							CMP ecx, eax

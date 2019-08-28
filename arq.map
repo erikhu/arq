@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Aug 23 2019 01:32:01 (32-bit)
 Copyright (c) 2002-2019 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       19/08/28 15:27:24
+Created on:       19/08/28 16:32:44
 Executable Image: arq.exe
 creating a Windows NT character-mode executable
 
@@ -58,18 +58,18 @@ Address        Symbol
 =======        ======
 
 Module: main.obj(C:\users\salpicon\proyecto\arq\main.cpp)
-004017c7+      __near std::allocator<char __near >::~allocator()
-004017fa+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
-004018fb+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
+004017c8+      __near std::allocator<char __near >::~allocator()
+004017fb+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
+004018fc+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
 0040d390+      int unsigned const __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::npos
-004019c2+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
+004019c3+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
 00401010       main_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stkwnt.asm)
-00401a41       __CHK
-00401a51*      __STK
-00401a80*      __GRO
-00401a70*      __STKOVERFLOW_
-00401aa0*      __alloca_probe
+00401a45       __CHK
+00401a55*      __STK
+00401a84*      __GRO
+00401a74*      __STKOVERFLOW_
+00401aa4*      __alloca_probe
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ioicout.cpp)
 00410038       std::ostream __near std::cout
 00401b14+      __near cout_initfini::cout_initfini()
@@ -733,4 +733,4 @@ C:\WATCOM\lib386\nt\clib3r.lib
 Stack size:  00100000 (1048576.)
 Memory size:  e0cd (57549.)
 Entry point address: 004020a0
-Link time: 00:00.79
+Link time: 00:00.86
