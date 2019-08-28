@@ -15,7 +15,7 @@ int main(){
 	double negativo = -1;
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
-	double matrix[32] = {0,0,6,1,1,0,0,0,0,5,9,1,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
+	double matrix[32] = {0,3,6,1,1,0,0,0,4,5,9,0,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
 
 	int contador = 0;
 
@@ -128,15 +128,15 @@ int main(){
 				  ADD esi, 08h
 				  LOOP multiplicacion
 
-				MOV edx, 0 ; linea en inversa 96
+				MOV iaux_val, ebx ; linea en inversa 96
+				INC iaux_val
 				para_ceros:
 					MOV eax, h
-					DEC eax
-					CMP edx, eax
-					JGE end_while1
+					CMP iaux_val, eax
+					JGE siguiente
 						MOV ecx, w ; tener encuenta en caso de val extraños
 						MOV esi, 00h
-						asignar_aux: ; toda la fila de f+1
+						asignar_aux: ; toda la fila superior
 							MOV edi, esi
 							MOV eax, 08h
 							MUL w
@@ -150,7 +150,7 @@ int main(){
 							LOOP asignar_aux
 						MOV eax, 08h
 						MUL w
-						MUL edx
+						MUL iaux_val
 						MOV esi, eax
 						FLD matrix[esi]
 						FLD negativo
@@ -165,8 +165,25 @@ int main(){
 							FSTP aux[esi]						;desapilamos en la matriz el resultado de la multiplicacion
 							ADD esi, 08h						;aumenta el indice para la liste de tipo double
 							LOOP multiplicacion1 		;decrementa el registro ecx y luego verifica que sea distinto de cero
-					INC edx
+					MOV ecx, w	 							;reinicia el valor del contador con el ancho de columna
+					MOV esi, 00h 							;el indice es cero para acceder desde el inicio a aux y aux1
+					suma: 										;marca de inicio para la suma de dos listas
+						MOV edi, esi
+						MOV eax, 08h
+						MUL w
+						MUL iaux_val
+						MOV esi, eax
+						ADD esi, edi
+						FLD matrix[esi]
+						FLD aux[edi] 						;apila el valor de aux para sumarlo con aux1
+						FADD
+						FSTP matrix[esi] 					;guarda la suma en el aux
+						MOV esi, edi
+						ADD esi, 08h 						;aumenta el indice para lista tipo double
+					  LOOP suma 							;descuenta el registro cx hasta recorrer la base
+					INC iaux_val
 					JMP para_ceros
+				siguiente:
 				INC ebx
 				JMP while1
 		end_while1:
@@ -194,6 +211,7 @@ int main(){
 		cout << "diagonal: " << diagonal << "\n";
 		cout << "pointery: " << pointery << "\n";
 		cout << "p_auxy: " << p_auxy << "\n";
+		cout << "c_mul: " << c_mul << "\n";
 
     return 0;
     }
