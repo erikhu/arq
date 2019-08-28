@@ -15,7 +15,7 @@ int main(){
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
 	double matrix[32] = {0,0,6,1,1,0,0,0,0,5,9,1,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
-	
+
 	int contador = 0;
 
 	for(int i = 0 ; i < 32; i++){
@@ -106,8 +106,8 @@ int main(){
 							DEC eax
 							CMP ecx, eax
 							JGE end_while1; la matriz no tiene solucion
-							INC ecx
-							JMP filas_abajo
+								INC ecx
+								JMP filas_abajo
 				end_if1:
 				MOV eax, 0
 				CMP eax, convertir
