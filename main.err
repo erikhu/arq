@@ -1,2 +1,6 @@
-main.cpp(135): Warning! W894: col(97) unexpected character (195) in source file
-main.cpp(135): Warning! W894: col(98) unexpected character (177) in source file
+main.cpp(136): Warning! W894: col(97) unexpected character (195) in source file
+main.cpp(136): Warning! W894: col(98) unexpected character (177) in source file
+main.cpp(204): Warning! W894: col(81) unexpected character (195) in source file
+main.cpp(204): Warning! W894: col(82) unexpected character (177) in source file
+main.cpp(290): Warning! W014: col(5) no reference to symbol 'aux1'
+main.cpp(18): Note! N392: col(16) definition: 'double aux1[6]' in 'int main( void )'

@@ -2,20 +2,21 @@
 #include <vector>
 using namespace std;
 int main(){
-	int h = 4; // # de filas de la matrix
-	int w = 8; // ancho de columna
+	int h = 3; // # de filas de la matrix
+	int w = 6; // ancho de columna
 	double aux_val; // variable que puede ser usada cada que se requiera operar con doble precision
 	int iaux_val; // variable que puede ser usada en cualquier momento que se requiera operar con enteros
 	int iaux_val1;
-	int pointery = 0; // se usa para saber la posicion de la fila superior
-	int p_auxy = 1; // la posicion de la fila inferior con la que se quiere intercambiar (este valor siempre debe ser mayor a pointery)
+	int iaux_val2;
+	int pointery; // se usa para saber la posicion de la fila superior
+	int p_auxy; // la posicion de la fila inferior con la que se quiere intercambiar (este valor siempre debe ser mayor a pointery)
 	double c_mul; // valor numero que se multiplica con fila
 	int interrupcion = 0;
 	double diagonal;
 	double negativo = -1;
-	double aux[8] = {1,4,6,3,1,0,0,0};
-	double aux1[8] = {5,3,9,3,0,0,0,1};
-	double matrix[32] = {9,3,6,1,1,0,0,0,4,5,9,0,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
+	double aux[6];
+	double aux1[6];
+	double matrix[18] = {1,0,0,1,0,0,-1,2,3,0,1,0,0,1,2,0,0,1};
 
 	int contador = 0;
 
@@ -189,9 +190,75 @@ int main(){
 				INC ebx
 				JMP while1
 		end_while1:
+
 		MOV ecx, h
 		ceros_arriba:
-
+			CMP ecx,1
+			JLE fin
+			MOV iaux_val, ecx; k fila inferior
+			DEC ecx
+			MOV iaux_val1, ecx; l fila superior
+			alreves:
+				CMP ecx, 0
+				JLE fin_alreves
+				MOV ecx, w ; tener encuenta en caso de val extraños
+				MOV esi, 00h
+				asignar_aux1: ; toda la fila inferior
+					MOV edi, esi
+					MOV eax, 08h
+					MUL w
+					MUL iaux_val
+					MOV esi, eax
+					ADD esi, edi
+					FLD matrix[esi]
+					FSTP aux[edi]
+					MOV esi, edi
+					ADD esi, 08h
+					LOOP asignar_aux1
+				MOV eax, 08h
+				MUL w
+				MUL iaux_val1
+				MOV iaux_val2, eax
+				MOV eax, 08h
+				MUL iaux_val
+				ADD eax, iaux_val2
+				MOV esi, eax
+				FLD matrix[esi]
+				FLD negativo
+				FMUL
+				FSTP c_mul
+				MOV esi, 00h 							;reinicia el indice del registro esi para iniciar desde cero
+				MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
+				multiplicacion2:   				;marca de inicio para la multiplicacion de una lista por una constante
+					FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
+					FLD aux[esi]    				;apila el valor de la matriz para multiplicar con la constante
+					FMUL										;multiplica la constante por el valor apilado de la matriz
+					FSTP aux[esi]						;desapilamos en la matriz el resultado de la multiplicacion
+					ADD esi, 08h						;aumenta el indice para la liste de tipo double
+					LOOP multiplicacion2 		;decrementa el registro ecx y luego verifica que sea distinto de cero
+				MOV ecx, w	 							;reinicia el valor del contador con el ancho de columna
+				MOV esi, 00h 							;el indice es cero para acceder desde el inicio a aux y aux1
+				suma1: 										;marca de inicio para la suma de dos listas
+					MOV edi, esi
+					MOV eax, 08h
+					MUL w
+					MUL iaux_val1
+					MOV esi, eax
+					ADD esi, edi
+					FLD matrix[esi]
+					FLD aux[edi] 						;apila el valor de aux para sumarlo con aux1
+					FADD
+					FSTP matrix[esi] 					;guarda la suma en el aux
+					MOV esi, edi
+					ADD esi, 08h 						;aumenta el indice para lista tipo double
+					LOOP suma1							;descuenta el registro cx hasta recorrer la base
+				MOV ecx, iaux_val1
+				DEC ecx
+				JMP alreves
+			fin_alreves:
+				MOV ecx, iaux_val
+				DEC ecx
+			 	JMP ceros_arriba
 			JMP fin
 		error:
 			MOV interrupcion, 1
