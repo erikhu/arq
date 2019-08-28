@@ -58,17 +58,17 @@ def multi(l1, k):
 
 # Buscador y cambiador de filas
 #swap_finder(matriz, diagonal, filas)
-def swap_finder(m, diagonal, filas):
+def swap_finder(m, fila, filas):
 #verifica que la fila no sea la ultima
-    if diagonal == (filas-1):
+    if fila == (filas-1):
         print "La matriz es una matriz singular."
         print "Eso implica que no se puede resolver.\n\n"
         return m, False
     else:
 #Busca intercambiarlo con una fila inferior la cual la misma col no sea 0
-        for i in range(diagonal, filas):
-            if m[i][diagonal] != 0:
-                m[diagonal], m[i] = m[i], m[diagonal]
+        for i in range(fila, filas):
+            if m[i][fila] != 0:
+                m[fila], m[i] = m[i], m[fila]
                 return m, True
         print "La matriz es una matriz singular."
         print "Eso implica que no se puede resolver.\n\n"
