@@ -148,6 +148,14 @@ int main(){
 							MOV esi, edi
 							ADD esi, 08h
 							LOOP asignar_aux
+						MOV eax, 08h
+						MUL w
+						MUL edx
+						MOV esi, eax
+						FLD matrix[esi]
+						FLD negativo
+						FMUL
+						FSTP c_mul
 						MOV esi, 00h 							;reinicia el indice del registro esi para iniciar desde cero
 						MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
 						multiplicacion1:   				;marca de inicio para la multiplicacion de una lista por una constante
