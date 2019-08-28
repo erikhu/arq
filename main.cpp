@@ -15,7 +15,7 @@ int main(){
 	double negativo = -1;
 	double aux[8] = {1,4,6,3,1,0,0,0};
 	double aux1[8] = {5,3,9,3,0,0,0,1};
-	double matrix[32] = {0,3,6,1,1,0,0,0,4,5,9,0,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
+	double matrix[32] = {9,3,6,1,1,0,0,0,4,5,9,0,0,1,0,0,6,1,2,7,0,0,1,0,5,7,7,1,0,0,0,1};
 
 	int contador = 0;
 
@@ -149,6 +149,10 @@ int main(){
 						MOV eax, 08h
 						MUL w
 						MUL iaux_val
+						MOV iaux_val1, eax
+						MOV eax, 08h
+						MUL ebx
+						ADD eax, iaux_val1
 						MOV esi, eax
 						FLD matrix[esi]
 						FLD negativo

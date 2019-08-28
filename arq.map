@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Aug 23 2019 01:32:01 (32-bit)
 Copyright (c) 2002-2019 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       19/08/28 16:54:09
+Created on:       19/08/28 17:07:57
 Executable Image: arq.exe
 creating a Windows NT character-mode executable
 
@@ -26,8 +26,8 @@ Segment                Class          Group          Address         Size
 =======                =====          =====          =======         ====
 
 BEGTEXT                CODE           AUTO           00401000        00000007
-_TEXT                  CODE           AUTO           00401010        0000a3e7
-TRANSFER CODE          CODE           AUTO           0040b3f8        000000ea
+_TEXT                  CODE           AUTO           00401010        0000a3f7
+TRANSFER CODE          CODE           AUTO           0040b408        000000ea
 .idata                 .idata         .idata         0040c000        00000442
 _NULL                  BEGDATA        DGROUP         0040d000        00000004
 _AFTERNULL             BEGDATA        DGROUP         0040d004        00000000
@@ -58,46 +58,46 @@ Address        Symbol
 =======        ======
 
 Module: main.obj(C:\users\salpicon\proyecto\arq\main.cpp)
-00401828+      __near std::allocator<char __near >::~allocator()
-0040185b+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
-0040195c+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
+0040183b+      __near std::allocator<char __near >::~allocator()
+0040186e+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::basic_string( std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near > const __near & )
+0040196f+      __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::~basic_string()
 0040d3a0+      int unsigned const __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::npos
-00401a23+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
+00401a36+      char __near * __near std::basic_string<char __near,std::char_traits<char __near > __near,std::allocator<char __near > __near >::alloc( int unsigned, int unsigned __near & )
 00401010       main_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stkwnt.asm)
-00401aa5       __CHK
-00401ab5*      __STK
-00401ae4*      __GRO
-00401ad4*      __STKOVERFLOW_
-00401b04*      __alloca_probe
+00401ab5       __CHK
+00401ac5*      __STK
+00401af4*      __GRO
+00401ae4*      __STKOVERFLOW_
+00401b14*      __alloca_probe
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ioicout.cpp)
 00410038       std::ostream __near std::cout
-00401b74+      __near cout_initfini::cout_initfini()
-00401b7c+      __near cout_initfini::~cout_initfini()
+00401b84+      __near cout_initfini::cout_initfini()
+00401b8c+      __near cout_initfini::~cout_initfini()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iofoutfl.cpp)
-00401bb0       std::ostream __near & __near std::ostream::__outfloat( long double const __near & )
+00401bc0       std::ostream __near & __near std::ostream::__outfloat( long double const __near & )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostincch.cpp)
-00401f00       std::ostream __near & __near std::ostream::operator <<( char const __near * )
+00401f10       std::ostream __near & __near std::ostream::operator <<( char const __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostinslo.cpp)
-00401f80       std::ostream __near & __near std::ostream::operator <<( long )
+00401f90       std::ostream __near & __near std::ostream::operator <<( long )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(FSHAND)
-00402066       ___wcpp_4_fs_handler_
+00402076       ___wcpp_4_fs_handler_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(memcpy.c)
-00402080       memcpy_
+00402090       memcpy_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(opdel.cpp)
-004020a0       void __near operator delete( void __near * )
+004020b0       void __near operator delete( void __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(opnew.cpp)
-004020b0       void __near * __near operator new( int unsigned )
+004020c0       void __near * __near operator new( int unsigned )
 Module: C:\WATCOM\lib386\nt\clib3r.lib(cstrtwnt)
-00402100       _cstart_
-00402100*      mainCRTStartup
+00402110       _cstart_
+00402110*      mainCRTStartup
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fltused.c)
 0040db1c       _fltused_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iofefg.cpp)
 0040f26e       __ppfltused_
 Module: C:\WATCOM\lib386\emu387.lib(386stub.asm)
-004021bc       __init_387_emulator
-004021bd*      __fini_387_emulator
+004021cc       __init_387_emulator
+004021cd*      __fini_387_emulator
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_8087386.asm)
 0040db20       __8087
 0040db21       __real87
@@ -107,28 +107,28 @@ Module: C:\WATCOM\lib386\nt\plbx3r.lib(cppdata.cpp)
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(fsroot.cpp)
 0040f280       ___wcpp_4_data_init_fs_root_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(xmsgwnt.c)
-004021d0       __exit_with_msg_
-00402230       __fatal_runtime_error_
+004021e0       __exit_with_msg_
+00402240       __fatal_runtime_error_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(snglthrd.c)
 0040db24       ___FirstThreadData
 0040db28       ___GetThreadPtr
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(undefed.cpp)
-00402260       __wcpp_4_undefed_cdtor__
+00402270       __wcpp_4_undefed_cdtor__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(iobaddr.c)
-00402270       __get_std_stream_
-00402270*      __get_std_file_
+00402280       __get_std_stream_
+00402280*      __get_std_file_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(sdfconfp.cpp)
-00402290       __near stdiobuf::stdiobuf( __iobuf __near * )
+004022a0       __near stdiobuf::stdiobuf( __iobuf __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stablcl.cpp)
-004022a0       __wcpp_4_lcl_register__
+004022b0       __wcpp_4_lcl_register__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostconsf.cpp)
-004022b0       __near std::ostream::ostream( std::streambuf __near * )
+004022c0       __near std::ostream::ostream( std::streambuf __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostflush.cpp)
-00402370       std::ostream __near & __near std::ostream::flush()
+00402380       std::ostream __near & __near std::ostream::flush()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostdestr.cpp)
-004023b0       __near std::ostream::~ostream()
+004023c0       __near std::ostream::~ostream()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(sdfdestr.cpp)
-00402480       __near stdiobuf::~stdiobuf()
+00402490       __near stdiobuf::~stdiobuf()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(moddtorr.cpp)
 0040f2a4       ___wcpp_4_data_module_dtor_ref_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iofnoefg.cpp)
@@ -137,44 +137,44 @@ Module: C:\WATCOM\lib386\nt\plbx3r.lib(iofnoefg.cpp)
 0040db5c       ___EFG_cvtld
 0040db60       ___EFG_cnvd2ld
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(opnewarr.cpp)
-00402570       void __near * __near operator new []( int unsigned )
+00402580       void __near * __near operator new []( int unsigned )
 Module: C:\WATCOM\lib386\nt\clib3r.lib(memset.c)
-00402580       memset_
+00402590       memset_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostopfx.cpp)
-004025a0       int __near std::ostream::do_opfx()
+004025b0       int __near std::ostream::do_opfx()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iouwrtit.cpp)
-00402610       int __near __WATCOM_ios::writeitem( std::ostream __near &, char const __near *, int, int )
+00402620       int __near __WATCOM_ios::writeitem( std::ostream __near &, char const __near *, int, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iossetst.cpp)
-00402990+      __near std::ios::failure::failure( std::ios::failure const __near & )
-004029a0+      __near std::ios::failure::~failure()
-004029b0+      __near __WATCOM_exception::__WATCOM_exception( __WATCOM_exception const __near & )
-004029c0+      __near __WATCOM_exception::~__WATCOM_exception()
-00402960       void __near std::ios::setstate( int )
+004029a0+      __near std::ios::failure::failure( std::ios::failure const __near & )
+004029b0+      __near std::ios::failure::~failure()
+004029c0+      __near __WATCOM_exception::__WATCOM_exception( __WATCOM_exception const __near & )
+004029d0+      __near __WATCOM_exception::~__WATCOM_exception()
+00402970       void __near std::ios::setstate( int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(opdelarr.cpp)
-004029d0       void __near operator delete []( void __near * )
+004029e0       void __near operator delete []( void __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ioufgtba.cpp)
-004029e0       int __near __FlagsToBase( long )
+004029f0       int __near __FlagsToBase( long )
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ltoa.c)
-00402a10       ultoa_
-00402a60       ltoa_
+00402a20       ultoa_
+00402a70       ltoa_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostinulo.cpp)
-00402a90       std::ostream __near & __near std::ostream::operator <<( long unsigned )
+00402aa0       std::ostream __near & __near std::ostream::operator <<( long unsigned )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(fsregist.cpp)
-00402c00+      __wcpp_4_dispatch_dummy__
-00402c24       __wcpp_4_fs_lookup__
-00402cd4       ___wcpp_4_fs_handler_rtn_
+00402c10+      __wcpp_4_dispatch_dummy__
+00402c34       __wcpp_4_fs_lookup__
+00402ce4       ___wcpp_4_fs_handler_rtn_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nfree.c)
-00402db0       _nfree_
-00402db0       free_
+00402dc0       _nfree_
+00402dc0       free_
 0041009c       ___MiniHeapFreeRover
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nmalloc.c)
-00402eb0       _nmalloc_
-00402eb0       malloc_
+00402ec0       _nmalloc_
+00402ec0       malloc_
 0040db98       ___nheapbeg
 0040db9c       ___MiniHeapRover
 0040dba0       ___LargestSizeB4MiniHeapRover
 Module: C:\WATCOM\lib386\nt\clib3r.lib(main2wnt.c)
-00402fa0       __NTMain
+00402fb0       __NTMain
 Module: C:\WATCOM\lib386\nt\clib3r.lib(segdefns)
 00401003       ___begtext
 0040d000*      __nullarea
@@ -183,21 +183,21 @@ Module: C:\WATCOM\lib386\nt\clib3r.lib(segdefns)
 0040f29e       __Start_YI
 0040f2c2       __End_YI
 Module: C:\WATCOM\lib386\nt\clib3r.lib(setefg.c)
-00403000       __setEFGfmt_
+00403010       __setEFGfmt_
 Module: C:\WATCOM\lib386\math387r.lib(cnvs2d.c)
-00403015       __cnvs2d_
+00403025       __cnvs2d_
 Module: C:\WATCOM\lib386\math387r.lib(cnvd2f.c)
-00403023       __cnvd2f_
+00403033       __cnvd2f_
 Module: C:\WATCOM\lib386\math387r.lib(ldcvt.c)
-00403175       _LDScale10x_
-0040371c       __cvtld_
-0040371c       __LDcvt_
+00403185       _LDScale10x_
+0040372c       __cvtld_
+0040372c       __LDcvt_
 Module: C:\WATCOM\lib386\math387r.lib(cnvd2ld.c)
-00403b69       __cnvd2ld_
+00403b79       __cnvd2ld_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(chk8087.c)
-00403b90*      _fpreset_
-00403bd0       __chk8087_
-00403be0*      __init_8087_
+00403ba0*      _fpreset_
+00403be0       __chk8087_
+00403bf0*      __init_8087_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(crwdata)
 0040dc8d       __osmajor
 0040dc8e       __osminor
@@ -236,11 +236,11 @@ Module: C:\WATCOM\lib386\nt\clib3r.lib(mainwnt.c)
 0040dcc8*      __ReleaseFHeap
 0040dccc*      __AccessTDList
 0040dcd0*      __ReleaseTDList
-00403c60*      __threadid_
-00403c80+      __NTInit_
-00403ea0+      __NTFini_
-00403f20       __NTMainInit_
-00403f80       __exit_
+00403c70*      __threadid_
+00403c90+      __NTInit_
+00403eb0+      __NTFini_
+00403f30       __NTMainInit_
+00403f90       __exit_
 0040dcd4       __AccessFList
 0040dcd8       __ReleaseFList
 0040dcdc+      __ThreadExitRtn
@@ -249,421 +249,421 @@ Module: C:\WATCOM\lib386\nt\clib3r.lib(mainwnt.c)
 0040dce8       ___process_fini
 004100a8       ___Is_DLL
 Module: C:\WATCOM\lib386\nt\clib3r.lib(enterdb.c)
-00403fd0       __EnterWVIDEO_
+00403fe0       __EnterWVIDEO_
 0040dcec+      ___WD_Present
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(fatalerr.cpp)
-00404000       __wcpp_4_fatal_runtime_error__
+00404010       __wcpp_4_fatal_runtime_error__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(iob.c)
 0040dcf0       ___iob
 004106c4       ___OpenStreams
 004106c8       ___ClosedStreams
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfdsgtn.cpp)
-00404020       int __near std::streambuf::do_sgetn( char __near *, int )
+00404030       int __near std::streambuf::do_sgetn( char __near *, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(vfun_err.cpp)
-004040a0       __wcpp_4_undef_vfun__
+004040b0       __wcpp_4_undef_vfun__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfdspun.cpp)
-004040d0       int __near std::streambuf::do_sputn( char const __near *, int )
+004040e0       int __near std::streambuf::do_sputn( char const __near *, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfpbfai.cpp)
-00404170       int __near std::streambuf::pbackfail( int )
+00404180       int __near std::streambuf::pbackfail( int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(sdfoverf.cpp)
-00404180       int __near stdiobuf::overflow( int )
+00404190       int __near stdiobuf::overflow( int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(sdfundrf.cpp)
-004042e0       int __near stdiobuf::underflow()
+004042f0       int __near stdiobuf::underflow()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfsbuf.cpp)
-00404400       std::streambuf __near * __near std::streambuf::setbuf( char __near *, int )
+00404410       std::streambuf __near * __near std::streambuf::setbuf( char __near *, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfseeko.cpp)
-00404450       long __near std::streambuf::seekoff( long, int, int )
+00404460       long __near std::streambuf::seekoff( long, int, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfseekp.cpp)
-00404460       long __near std::streambuf::seekpos( long, int )
+00404470       long __near std::streambuf::seekpos( long, int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(sdfsync.cpp)
-00404470       int __near stdiobuf::sync()
+00404480       int __near stdiobuf::sync()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfdoall.cpp)
-004044a0       int __near std::streambuf::doallocate()
+004044b0       int __near std::streambuf::doallocate()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfconde.cpp)
-004044e0       __near std::streambuf::streambuf()
+004044f0       __near std::streambuf::streambuf()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabmod.cpp)
-00404530       __wcpp_4_module_dtor__
-0040455c       __wcpp_4_mod_register__
+00404540       __wcpp_4_module_dtor__
+0040456c       __wcpp_4_mod_register__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iosinit.cpp)
-00404570       void __near std::ios::init( std::streambuf __near * )
+00404580       void __near std::ios::init( std::streambuf __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iosconde.cpp)
-004045c0       __near std::ios::ios()
+004045d0       __near std::ios::ios()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iosdestr.cpp)
-004045d0       __near std::ios::~ios()
+004045e0       __near std::ios::~ios()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfsync.cpp)
-00404660       int __near std::streambuf::sync()
+00404670       int __near std::streambuf::sync()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(dtorarst.cpp)
-004046a0       __wcpp_4_dtor_array_store__
+004046b0       __wcpp_4_dtor_array_store__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfdestr.cpp)
-004046d0       __near std::streambuf::~streambuf()
+004046e0       __near std::streambuf::~streambuf()
 Module: C:\WATCOM\lib386\nt\clib3r.lib(__stos.asm)
-004046f0       __STOSB
-0040472a*      __STOSD
+00404700       __STOSB
+0040473a*      __STOSD
 Module: C:\WATCOM\lib386\nt\clib3r.lib(flush.c)
-004047a0       __flush_
+004047b0       __flush_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(iosfail.cpp)
-004048a0       __near std::ios::failure::failure( int )
+004048b0       __near std::ios::failure::failure( int )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabthrw.cpp)
-00404fd0+      __near std::exception::exception()
-00405020+      __near std::exception::exception( std::exception const __near & )
-00405070+      __near std::exception::exception( char const __near * )
-004050c0+      __near std::exception::~exception()
-00405150+      char const __near * __near std::exception::what() const
-00405190+      __near std::bad_exception::bad_exception()
-004051f0+      __near std::bad_exception::bad_exception( std::bad_exception const __near & )
-00405240+      __near std::bad_exception::~bad_exception()
-00404e84*      __wcpp_4_catch_done__
-00404eec       __wcpp_4_throw__
-00404f34*      __wcpp_4_throw_zero__
-00404f80*      __wcpp_4_rethrow__
+00404fe0+      __near std::exception::exception()
+00405030+      __near std::exception::exception( std::exception const __near & )
+00405080+      __near std::exception::exception( char const __near * )
+004050d0+      __near std::exception::~exception()
+00405160+      char const __near * __near std::exception::what() const
+004051a0+      __near std::bad_exception::bad_exception()
+00405200+      __near std::bad_exception::bad_exception( std::bad_exception const __near & )
+00405250+      __near std::bad_exception::~bad_exception()
+00404e94*      __wcpp_4_catch_done__
+00404efc       __wcpp_4_throw__
+00404f44*      __wcpp_4_throw_zero__
+00404f90*      __wcpp_4_rethrow__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(alphabet.c)
-00405320       ___Alphabet
+00405330       ___Alphabet
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ostadpre.cpp)
-00405350       void __near __AddPrefix( char, char __near *, int __near &, int, long )
+00405360       void __near __AddPrefix( char, char __near *, int __near &, int, long )
 Module: C:\WATCOM\lib386\nt\clib3r.lib(strupr.c)
-004053b0       strupr_
+004053c0       strupr_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabdtor.cpp)
-00405674       __wcpp_4_destruct_internal__
-00405694*      __wcpp_4_destruct_all__
-00405698*      __wcpp_4_destruct__
+00405684       __wcpp_4_destruct_internal__
+004056a4*      __wcpp_4_destruct_all__
+004056a8*      __wcpp_4_destruct__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabdisp.cpp)
-004058e8       __wcpp_4_dispatchable__
+004058f8       __wcpp_4_dispatchable__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mem.c)
-00405930       __MemAllocator
-004059e0       __MemFree
+00405940       __MemAllocator
+004059f0       __MemFree
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nmemneed.c)
-00405b20       __nmemneed_
+00405b30       __nmemneed_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(grownear.c)
-00405c70       __ExpandDGROUP_
+00405c80       __ExpandDGROUP_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(initrtns.c)
-00405cc0       __InitRtns
-00405d10       __FiniRtns
+00405cd0       __InitRtns
+00405d20       __FiniRtns
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mthrdini.c)
-00405d70       __InitThreadData_
+00405d80       __InitThreadData_
 0040df74       ___ThreadDataSize
 Module: C:\WATCOM\lib386\nt\clib3r.lib(cmain386.c)
-00405da0       __CMain
+00405db0       __CMain
 Module: C:\WATCOM\lib386\nt\clib3r.lib(dosseg)
 00001234       __DOSseg__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(noefgfmt.c)
 0040df78       ___EFG_printf
 0040df7c       ___EFG_scanf
 Module: C:\WATCOM\lib386\math387r.lib(efgfmt.c)
-00405e20       _EFG_Format_
+00405e30       _EFG_Format_
 Module: C:\WATCOM\lib386\math387r.lib(strtod.c)
-0040649e+      __Strtold_
-00406605       strtod_
+004064ae+      __Strtold_
+00406615       strtod_
 Module: C:\WATCOM\lib386\math387r.lib(ldclass.c)
-00406749       __LDClass_
-00406799*      _FLClass_
+00406759       __LDClass_
+004067a9*      _FLClass_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(8087cw.c)
 0040df80       __8087cw
 Module: C:\WATCOM\lib386\nt\clib3r.lib(save8087.c)
 0040df84       ___Save8087
 0040df88       ___Rest8087
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ini87386.asm)
-004067b4       __x87id
+004067c4       __x87id
 Module: C:\WATCOM\lib386\nt\clib3r.lib(hdlman.c)
 0040df8c+      ___NHandles
-004067f0+      __growPOSIXHandles_
-00406890+      __allocPOSIXHandle_
-00406950       __freePOSIXHandle_
-00406970       __getOSHandle_
-00406980       __setOSHandle_
-004069d0+      __NTGetFakeHandle_
-00406a40       __initPOSIXHandles_
-00406b20*      __set_handles_
-00406b30*      _grow_handles_
+00406800+      __growPOSIXHandles_
+004068a0+      __allocPOSIXHandle_
+00406960       __freePOSIXHandle_
+00406980       __getOSHandle_
+00406990       __setOSHandle_
+004069e0+      __NTGetFakeHandle_
+00406a50       __initPOSIXHandles_
+00406b30*      __set_handles_
+00406b40*      _grow_handles_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(environ.c)
 004106cc       ___env_mask
 004106d0       _environ
 004106d4       __wenviron
 Module: C:\WATCOM\lib386\nt\clib3r.lib(getmodfn.c)
-00406b70       __lib_GetModuleFileNameW_
+00406b80       __lib_GetModuleFileNameW_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(strdup.c)
-00406c10       __clib_strdup_
-00406c10*      strdup_
+00406c20       __clib_strdup_
+00406c20*      strdup_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(istable.c)
-00406c50       __IsTable
+00406c60       __IsTable
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ustrdup.c)
-00406d51       __clib_wcsdup_
-00406d51*      _wcsdup_
+00406d61       __clib_wcsdup_
+00406d61*      _wcsdup_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(uisspace.c)
-00406d78       iswspace_
+00406d88       iswspace_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(excptwnt.c)
-00407400+      ___ReportException@4
-00407850       __DefaultExceptionHandler_
-00407890+      ___ExceptionFilter
-00407aa0       __NewExceptionFilter_
-00407ad0       __DoneExceptionFilter_
+00407410+      ___ReportException@4
+00407860       __DefaultExceptionHandler_
+004078a0+      ___ExceptionFilter
+00407ab0       __NewExceptionFilter_
+00407ae0       __DoneExceptionFilter_
 0040dfa0       ___oscode_check_func
 0040dfa4       ___raise_func
 004106d8*      _sw
 004106dc+      ___ReportInvoked
 004106dd+      ___ExceptionHandled
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stklmwnt.c)
-00407b10       __init_stack_limits_
+00407b20       __init_stack_limits_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(exit.c)
-00407b7d+      __null_int23_exit_
-00407b7e       exit_
-00407bbd*      _exit_
+00407b8d+      __null_int23_exit_
+00407b8e       exit_
+00407bcd*      _exit_
 0040dfa8+      ___int23_exit
 0040dfac+      ___FPE_handler_exit
 Module: C:\WATCOM\lib386\nt\clib3r.lib(initfile.c)
-00407c10       __InitFiles_
+00407c20       __InitFiles_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ioexit.c)
-00407d10*      fcloseall_
-00407d20       __full_io_exit_
+00407d20*      fcloseall_
+00407d30       __full_io_exit_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(pure_err.cpp)
-00407d30       __wcpp_4_pure_error__
+00407d40       __wcpp_4_pure_error__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(prwdata.cpp)
 004106e0       __wint_pure_error_flag
 004106e2       __wint_undef_vfun_flag
 004106e4       __wint_module_init
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fwrite.c)
-00407d60       fwrite_
+00407d70       fwrite_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(memmove.c)
-00407f70       memmove_
+00407f80       memmove_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fgetc.c)
-00407fd0+      __fill_buffer_
-004080d0       fgetc_
+00407fe0+      __fill_buffer_
+004080e0       fgetc_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stfsetb.cpp)
-00408190       void __near std::streambuf::setb( char __near *, char __near *, int )
+004081a0       void __near std::streambuf::setb( char __near *, char __near *, int )
 Module: C:\WATCOM\lib386\nt\clib3r.lib(liballoc.c)
-004081f0       _plib_malloc_
-00408200       _plib_free_
+00408200       _plib_malloc_
+00408210       _plib_free_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(ioufrxal.cpp)
-00408210       void __near __WATCOM_ios::free_xalloc_storage( std::ios __near * )
+00408220       void __near __WATCOM_ios::free_xalloc_storage( std::ios __near * )
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabadt.cpp)
-00408230+      void __near * __near dtor_the_array( _RTARCTOR __near * )
-00408274+      __near _RTARCTOR::~_RTARCTOR()
-0040828c       __wcpp_4_dtor_array__
+00408240+      void __near * __near dtor_the_array( _RTARCTOR __near * )
+00408284+      __near _RTARCTOR::~_RTARCTOR()
+0040829c       __wcpp_4_dtor_array__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(__lseek.c)
-00408300       __lseek_
+00408310       __lseek_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fsync.c)
-00408340       fsync_
+00408350       fsync_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(qwrit.c)
-00408390       __qwrite_
+004083a0       __qwrite_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(exc_pr.cpp)
-00408470       __near _EXC_PR::_EXC_PR( _RTCTL __near *, RW_DTREG __near *, EXCSTATE )
-0040849c       __near _EXC_PR::~_EXC_PR()
-004084ac       __near _EXC_PR_FREE::_EXC_PR_FREE( _RTCTL __near *, RW_DTREG __near *, EXCSTATE, ACTIVE_EXC __near * )
-004084c0       __near _EXC_PR_FREE::~_EXC_PR_FREE()
-004084f8       __near _EXC_PR_DTOR::_EXC_PR_DTOR( _RTCTL __near *, RW_DTREG __near *, EXCSTATE, ACTIVE_EXC __near * )
-00408508       __near _EXC_PR_FNEXC::_EXC_PR_FNEXC( _RTCTL __near *, RW_DTREG __near *, RW_DTREG __near *, ACTIVE_EXC __near * )
-00408528       __near _EXC_PR_FNEXC::~_EXC_PR_FNEXC()
-00408530       __near _EXC_PR_DTOR::~_EXC_PR_DTOR()
+00408480       __near _EXC_PR::_EXC_PR( _RTCTL __near *, RW_DTREG __near *, EXCSTATE )
+004084ac       __near _EXC_PR::~_EXC_PR()
+004084bc       __near _EXC_PR_FREE::_EXC_PR_FREE( _RTCTL __near *, RW_DTREG __near *, EXCSTATE, ACTIVE_EXC __near * )
+004084d0       __near _EXC_PR_FREE::~_EXC_PR_FREE()
+00408508       __near _EXC_PR_DTOR::_EXC_PR_DTOR( _RTCTL __near *, RW_DTREG __near *, EXCSTATE, ACTIVE_EXC __near * )
+00408518       __near _EXC_PR_FNEXC::_EXC_PR_FNEXC( _RTCTL __near *, RW_DTREG __near *, RW_DTREG __near *, ACTIVE_EXC __near * )
+00408538       __near _EXC_PR_FNEXC::~_EXC_PR_FNEXC()
+00408540       __near _EXC_PR_DTOR::~_EXC_PR_DTOR()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(callterm.cpp)
-00408560       __wcpp_4_corrupted_stack__
-0040856c       __wcpp_4_call_terminate__
+00408570       __wcpp_4_corrupted_stack__
+0040857c       __wcpp_4_call_terminate__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(unexpect.cpp)
-00408590       void __near std::unexpected()
+004085a0       void __near std::unexpected()
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(tsequiv.cpp)
-00408600       __wcpp_4_ts_refed__
-00408614+      __wcpp_4_ts_pnted__
-00408644       __wcpp_4_ts_equiv__
+00408610       __wcpp_4_ts_refed__
+00408624+      __wcpp_4_ts_pnted__
+00408654       __wcpp_4_ts_equiv__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stjmp386.asm)
-00408738*      _setjmp_
-00408771       longjmp_
+00408748*      _setjmp_
+00408781       longjmp_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(pgmthrd.cpp)
-00408800       __wcpp_4_pgm_thread__
+00408810       __wcpp_4_pgm_thread__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabinit.cpp)
-00408830       __wcpp_4_exc_setup__
+00408840       __wcpp_4_exc_setup__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(allocexc.cpp)
-004088f4       __wcpp_4_alloc_exc__
-00408b4c       __wcpp_4_free_exc__
-00408b84       __wcpp_4_find_active__
-00408ba0       __wcpp_4_dtor_free_exc__
+00408904       __wcpp_4_alloc_exc__
+00408b5c       __wcpp_4_free_exc__
+00408b94       __wcpp_4_find_active__
+00408bb0       __wcpp_4_dtor_free_exc__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(stabtrav.cpp)
-00408c70       __wcpp_4_stab_entry__
-00408c88*      __wcpp_4_stab_trav_comp__
-00408d68       __wcpp_4_stab_trav_init__
-00408d8c       __wcpp_4_stab_trav_next__
-00408de4       __wcpp_4_stab_trav_move__
+00408c80       __wcpp_4_stab_entry__
+00408c98*      __wcpp_4_stab_trav_comp__
+00408d78       __wcpp_4_stab_trav_init__
+00408d9c       __wcpp_4_stab_trav_next__
+00408df4       __wcpp_4_stab_trav_move__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(amblksiz.c)
 0040dfc4       __amblksiz
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nheapmin.c)
-00408df0*      _nheapshrink_
-00408df0*      _nheapmin_
-00408df0*      _heapmin_
-00408df0*      _heapshrink_
-00408e30       __nheapshrink_
+00408e00*      _nheapshrink_
+00408e00*      _nheapmin_
+00408e00*      _heapmin_
+00408e00*      _heapshrink_
+00408e40       __nheapshrink_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(heapen.c)
-00408e80*      _heapenable_
+00408e90*      _heapenable_
 0040dfc8       ___heap_enabled
 Module: C:\WATCOM\lib386\nt\clib3r.lib(cinit.c)
-00408eb0       __CommonInit_
+00408ec0       __CommonInit_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(___argc.c)
 004106e8       ____Argc
 004106ec       ____Argv
 Module: C:\WATCOM\lib386\nt\clib3r.lib(rtcntrl.c)
-00408ec0*      _SetLD64bit_
-00408ed0*      _SetLD80bit_
-00408ee0       _LDisDouble_
+00408ed0*      _SetLD64bit_
+00408ee0*      _SetLD80bit_
+00408ef0       _LDisDouble_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(tolower.c)
-00408ef0       tolower_
+00408f00       tolower_
 Module: C:\WATCOM\lib386\math387r.lib(bufld386.asm)
-00408f00       __ZBuf2LD
+00408f10       __ZBuf2LD
 Module: C:\WATCOM\lib386\nt\clib3r.lib(seterrno.c)
-00408fa3*      __set_EDOM_
-00408fb1       __set_ERANGE_
-00408fbf*      __set_EINVAL_
+00408fb3*      __set_EDOM_
+00408fc1       __set_ERANGE_
+00408fcf*      __set_EINVAL_
 Module: C:\WATCOM\lib386\math387r.lib(inf_nan.c)
-00408fd2*      ___f_infinity
-00408fd6*      ___f_posqnan
-00408fda       ___d_infinity
-00408fe2       ___d_posqnan
-00408fea*      ___ld_infinity
-00408ff2*      ___ld_posqnan
+00408fe2*      ___f_infinity
+00408fe6*      ___f_posqnan
+00408fea       ___d_infinity
+00408ff2       ___d_posqnan
+00408ffa*      ___ld_infinity
+00409002*      ___ld_posqnan
 Module: C:\WATCOM\lib386\nt\clib3r.lib(hugeval.c)
-00409000       __HugeValue
+00409010       __HugeValue
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nrealloc.c)
-00409010*      _nrealloc_
-00409010       realloc_
+00409020*      _nrealloc_
+00409020       realloc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(iomode.c)
-00409090       __GetIOMode_
-004090b0       __SetIOMode_nogrow_
+004090a0       __GetIOMode_
+004090c0       __SetIOMode_nogrow_
 0040dfd0       ___NFiles
 0040dfd4       ___init_mode
 0040e024       ___io_mode
 Module: C:\WATCOM\lib386\nt\clib3r.lib(stiomode.c)
-004090d0       __grow_iomode_
-004091a0+      __shrink_iomode_
-004091e0       __SetIOMode_
+004090e0       __grow_iomode_
+004091b0+      __shrink_iomode_
+004091f0       __SetIOMode_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(setenvp.c)
-00409260       __setenvp_
-00409330       __freeenvp_
+00409270       __setenvp_
+00409340       __freeenvp_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ustrlen.c)
-0040937d       wcslen_
+0040938d       wcslen_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(conutwnt.c)
-004093a0       __NTRealKey_
-00409450       __NTConsoleInput_
-00409460       __NTConsoleOutput_
+004093b0       __NTRealKey_
+00409460       __NTConsoleInput_
+00409470       __NTConsoleOutput_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fclex387.c)
-00409470       _ClearFPE_
+00409480       _ClearFPE_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(signlwnt.c)
-00409680       __sigfpe_handler_
-004096d0*      signal_
-00409760+      raise_
+00409690       __sigfpe_handler_
+004096e0*      signal_
+00409770+      raise_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fclose.c)
-00409880+      __doclose_
-00409930       __shutdown_stream_
-00409950*      fclose_
+00409890+      __doclose_
+00409940       __shutdown_stream_
+00409960*      fclose_
 004106f8+      ___RmTmpFileFn
 Module: C:\WATCOM\lib386\nt\clib3r.lib(freefp.c)
-004099a0       __freefp_
-004099e0       __purgefp_
+004099b0       __freefp_
+004099f0       __purgefp_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ioalloc.c)
-00409a10       __ioalloc_
+00409a20       __ioalloc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(fputc.c)
-00409ab0       fputc_
+00409ac0       fputc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(flushall.c)
-00409b90       __flushall_
-00409bd0*      flushall_
+00409ba0       __flushall_
+00409be0*      flushall_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(gtchewnt.c)
-00409be0       getche_
+00409bf0       getche_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(qread.c)
-00409c10       __qread_
+00409c20       __qread_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(dosret.c)
-00409c80*      __dosretax
-00409c90*      __dosret0
-00409ca0       __set_errno_dos_
-00409ce0*      __set_errno_dos_reterr_
-00409cf0       __set_errno_nt_
-00409d00*      __set_errno_nt_reterr_
+00409c90*      __dosretax
+00409ca0*      __dosret0
+00409cb0       __set_errno_dos_
+00409cf0*      __set_errno_dos_reterr_
+00409d00       __set_errno_nt_
+00409d10*      __set_errno_nt_reterr_
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(termnate.cpp)
-00409d20       void __near std::terminate()
+00409d30       void __near std::terminate()
 Module: C:\WATCOM\lib386\nt\clib3r.lib(cmp386.asm)
-00409d50       strcmp_
+00409d60       strcmp_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(ljmphdl.c)
 0040e1a0       ___longjmp_handler
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(areaexc.cpp)
 0040e1a4       ___EXC_AREA
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(tssize.cpp)
-00409ec4       __wcpp_4_ts_size__
+00409ed4       __wcpp_4_ts_size__
 Module: C:\WATCOM\lib386\nt\plbx3r.lib(bittest.cpp)
-00409f00       __wcpp_4_bit_test__
-00409f20       __wcpp_4_bit_off__
+00409f10       __wcpp_4_bit_test__
+00409f30       __wcpp_4_bit_off__
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nheapunl.c)
-00409f40       __UnlinkNHeap_
+00409f50       __UnlinkNHeap_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nmsize.c)
-00409fa0       _nmsize_
-00409fa0*      _msize_
+00409fb0       _nmsize_
+00409fb0*      _msize_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(nexpand.c)
-00409fb0       _nexpand_
-00409fb0*      _expand_
+00409fc0       _nexpand_
+00409fc0*      _expand_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(iomodtty.c)
-00409fe0       __ChkTTYIOMode_
-0040a020*      __IOMode_
+00409ff0       __ChkTTYIOMode_
+0040a030*      __IOMode_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(dofilstr.c)
-0040a060       __ParsePosixHandleStr_
+0040a070       __ParsePosixHandleStr_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(clearenv.c)
-0040a180       clearenv_
+0040a190       clearenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(abort.c)
-0040a225*      abort_
-0040a239       __terminate_
+0040a235*      abort_
+0040a249       __terminate_
 0040f1c0       ___abort
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_clsewnt.c)
-0040a250       __close_
+0040a260       __close_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(chktty.c)
-0040a2b0       __chktty_
+0040a2c0       __chktty_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(getchwnt.c)
-0040a3f0       getch_
+0040a400       getch_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(putchwnt.c)
-0040a460       putch_
+0040a470       putch_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_expand.c)
-0040a4b0       __HeapManager_expand_
+0040a4c0       __HeapManager_expand_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(isattwnt.c)
-0040a5f0       isatty_
+0040a600       isatty_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(getenv.c)
-0040a610       getenv_
+0040a620       getenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(strncpy.c)
-0040a6b0       strncpy_
+0040a6c0       strncpy_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(strtol.c)
-0040a900*      strtoul_
-0040a910       strtol_
+0040a910*      strtoul_
+0040a920       strtol_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(putenv.c)
-0040a920       putenv_
+0040a930       putenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbterm.c)
-0040aad0       _mbterm_
+0040aae0       _mbterm_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbsnextc.c)
-0040ab10       _mbsnextc_
+0040ab20       _mbsnextc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbcupper.c)
-0040ab50       _mbctoupper_
+0040ab60       _mbctoupper_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbsinc.c)
-0040ab80       _mbsinc_
+0040ab90       _mbsinc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbschr.c)
-0040abb0       _mbschr_
+0040abc0       _mbschr_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbslen.c)
-0040ac10       _mbslen_
+0040ac20       _mbslen_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_putenv.c)
-0040ac40       __putenv_
+0040ac50       __putenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbstowcs.c)
-0040acd0       mbstowcs_
+0040ace0       mbstowcs_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_uputenv.c)
-0040ad50       __wputenv_
+0040ad60       __wputenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbisdbcs.c)
 0040f254       ___IsDBCS
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbislead.c)
-0040adc0*      _ismbblead_
+0040add0*      _ismbblead_
 00410708       ___MBCSIsTable
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbconv.c)
-0040ade0       _mbvtop_
+0040adf0       _mbvtop_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbclen.c)
-0040ae00       _mbclen_
+0040ae10       _mbclen_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbccmp.c)
-0040ae30       _mbccmp_
+0040ae40       _mbccmp_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_findenv.c)
-0040afb0       __findenv_
+0040afc0       __findenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbtowc.c)
-0040b0d0       mbtowc_
+0040b0e0       mbtowc_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(_ufinden.c)
-0040b220       __wfindenv_
+0040b230       __wfindenv_
 Module: C:\WATCOM\lib386\nt\clib3r.lib(mbinit.c)
-0040b328       __mbinit_
+0040b338       __mbinit_
 0040f258       ___MBCodePage
 Module: C:\WATCOM\lib386\nt\clib3r.lib(utoupper.c)
-0040b3e7       towupper_
+0040b3f7       towupper_
 
 
                         +----------------------+
@@ -731,6 +731,6 @@ C:\WATCOM\lib386\nt\clib3r.lib
                         +-----------------------+
 
 Stack size:  00100000 (1048576.)
-Memory size:  e12d (57645.)
-Entry point address: 00402100
-Link time: 00:00.06
+Memory size:  e13d (57661.)
+Entry point address: 00402110
+Link time: 00:00.97
