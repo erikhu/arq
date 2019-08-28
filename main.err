@@ -1,0 +1,2 @@
+main.cpp(86): Warning! W014: col(5) no reference to symbol 'aux_val'
+main.cpp(6): Note! N392: col(16) definition: 'double aux_val' in 'int main( void )'

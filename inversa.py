@@ -24,18 +24,18 @@ def generador(y,x):
 def impri(m):
     print "\n"
     print "\t||" + ("\t" * (len(m[0]) + 1)) + "||"
-    
+
     for i in range(len(m)):
         print "\t||\t",
-        
+
         for j in range(len(m[0])):
             print fpformat.fix(m[i][j],2),"\t",
 
         print "||"
         print "\t||" + ("\t" * (len(m[0]) + 1)) + "||"
-        
+
     print "\n"
- 
+
 # Sumador de listas
 
 def adic(l1, l2):
@@ -50,27 +50,26 @@ def adic(l1, l2):
 
 def multi(l1, k):
     ln = [0]*len(l1)
-    
+
     for i in range(len(l1)):
         ln[i] = k * l1[i]
 
     return ln
 
 # Buscador y cambiador de filas
-
-def swap_finder(m, l, x):
+#swap_finder(matriz, diagonal, filas)
+def swap_finder(m, diagonal, filas):
 #verifica que la fila no sea la ultima
-    if l == (x-1):
+    if diagonal == (filas-1):
         print "La matriz es una matriz singular."
         print "Eso implica que no se puede resolver.\n\n"
         return m, False
     else:
 #Busca intercambiarlo con una fila inferior la cual la misma col no sea 0
-        for i in range(l, x):
-            if m[i][l] != 0:
-                m[l], m[i] = m[i], m[l]
+        for i in range(diagonal, filas):
+            if m[i][diagonal] != 0:
+                m[diagonal], m[i] = m[i], m[diagonal]
                 return m, True
-
         print "La matriz es una matriz singular."
         print "Eso implica que no se puede resolver.\n\n"
         return m, False
@@ -80,7 +79,7 @@ def swap_finder(m, l, x):
 def solver(m,p):
     for i in range(p):
         boo = True
-        
+
         if m[i][i] == 0:
             m, boo = swap_finder(m, i, p)
 
@@ -114,7 +113,7 @@ dimy = int(raw_input("Ingrese la cantidad de filas de la matriz: "))
 dimx = int(raw_input("Ingrese la cantidad de columnas de la matriz: "))
 
 #solicita los valores
-matriz = generador(dimy, dimx) 
+matriz = generador(dimy, dimx)
 
 impri(matriz)
 
