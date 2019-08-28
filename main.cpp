@@ -9,8 +9,8 @@ int main(){
 	int iaux_val1;
 	int pointery = 0; // se usa para saber la posicion de la fila superior
 	int p_auxy = 1; // la posicion de la fila inferior con la que se quiere intercambiar (este valor siempre debe ser mayor a pointery)
-	int convertir = true;
 	double c_mul; // valor numero que se multiplica con fila
+	int interrupcion = 0;
 	double diagonal;
 	double negativo = -1;
 	double aux[8] = {1,4,6,3,1,0,0,0};
@@ -45,9 +45,7 @@ int main(){
 				ADD eax, iaux_val
 				MOV esi, eax
 				FLD matrix[esi]
-				FSTP diagonal
-				MOV convertir, 1
-				FLD diagonal
+				FST diagonal
 				FTST
         FNSTSW ax
         SAHF
@@ -189,6 +187,7 @@ int main(){
 		end_while1:
 			JMP fin
 		error:
+			MOV interrupcion, 1
 		fin:
 		}
     //mostrar fila
@@ -212,6 +211,6 @@ int main(){
 		cout << "pointery: " << pointery << "\n";
 		cout << "p_auxy: " << p_auxy << "\n";
 		cout << "c_mul: " << c_mul << "\n";
-
+		cout << "interrupcion: " << interrupcion << "\n";
     return 0;
     }
