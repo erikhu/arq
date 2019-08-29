@@ -54,7 +54,6 @@ int main(){
   int interrupcion = 0;
   double diagonal;
   double negativo = -1;
-  contador = 0;
   std::cout << "\n";
   _asm {
 	FINIT
