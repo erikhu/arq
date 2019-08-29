@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta Aug 18 2019 01:31:30 (64-bit)
 Copyright (c) 2002-2019 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       19/08/29 08:34:49
+Created on:       19/08/29 08:42:09
 Executable Image: arq.exe
 creating a Windows NT character-mode executable
 
@@ -768,4 +768,4 @@ C:\WATCOM\lib386\nt\clib3r.lib
 Stack size:  00100000 (1048576.)
 Memory size:  ee51 (61009.)
 Entry point address: 00402146
-Link time: 00:00.00
+Link time: 00:00.92

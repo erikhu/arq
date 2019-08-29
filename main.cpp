@@ -299,19 +299,18 @@ fin_alreves:
 	MOV ecx, iaux_val
 	INC ecx
 	JMP ceros_arriba
-
 fin_ceros_arriba:
 
   MOV ecx, w
   MOV esi, 00h
 en_ceros:
-  FLDZ		;hace ceros todo el arreglo aux
+  FLDZ					;hace ceros todo el arreglo aux
   FSTP aux[esi]
   ADD esi, 08h
   LOOP en_ceros
 
   MOV ebx, 0
-while2:
+en_la_fila:
 	CMP ebx, h
 	JGE fin
 	  MOV esi, 00h
@@ -332,17 +331,17 @@ mul_matrices:
 	  FMUL
     MOV eax, 08h
     MUL ebx
-    MOV esi, eax
+    MOV esi, eax			;direccion del elemento aux que suma cada multiplicacion
 	  FLD aux[esi]
 	  FADD
-	  FSTP aux[esi]
+	  FSTP aux[esi]			;se guarda el resultado dentro del mismo elemento aux y acomula
 	  MOV esi, edi
 	  ADD esi, 08h
     MOV iaux_val, ecx
 	  LOOP mul_matrices
 fin_mul_matrices:
 	INC ebx
-	JMP while2
+	JMP en_la_fila
 error:
 	MOV interrupcion, 1
 fin:
