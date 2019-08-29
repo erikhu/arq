@@ -2,6 +2,9 @@
 #include <conio.h>
 using namespace std;
 int main(){
+  const int MAX_COLUMNAS = 10;
+  const int MAX_FILAS = 5;
+  const int MAX_TIRA = 50;
   int h; // # de filas de la matrix
   int w; // ancho de columna
   cout << "\n\n\nSaludos, bienvenido a este programa\n";
@@ -13,10 +16,10 @@ int main(){
   cin >> h;
   w = h * 2;
   int tira = h*w;
-  double aux[10];
-  double aux1[10];
-  double independientes[5];
-  double matrix[50];
+  double aux[MAX_COLUMNAS];
+  double aux1[MAX_COLUMNAS];
+  double independientes[MAX_FILAS];
+  double matrix[MAX_TIRA];
   int contador = 0;
   int i_independiente = 0;
   cout << "Para la ecuacion 1 \n";
