@@ -207,95 +207,99 @@ multiplicacion1:
 	ADD esi, 08h
 	LOOP multiplicacion1
 
-	MOV ecx, w	 		;reinicia el valor del contador con el ancho de columna
-	MOV esi, 00h 			;el indice es cero para acceder desde el inicio a aux y aux1
+	MOV ecx, w
+	MOV esi, 00h
 suma: 					;marca de inicio para la suma de dos listas
-	MOV edi, esi
+	MOV edi, esi			;temporalmente almacena la direccion de aux
 	MOV eax, 08h
 	MUL w
 	MUL iaux_val
 	MOV esi, eax
-	ADD esi, edi
+	ADD esi, edi			;encuentra la direccion analoga de aux en la matriz principal
 	FLD matrix[esi]
-	FLD aux[edi] 			;apila el valor de aux para sumarlo con aux1
-	FADD
-	FSTP matrix[esi] 		;guarda la suma en el aux
+	FLD aux[edi]
+	FADD				;suma el elemento de aux con el elemento analogo en la matriz
+	FSTP matrix[esi]		;remplaza el resultado en la posicion del elemento en la matriz
 	MOV esi, edi
 	ADD esi, 08h 			;aumenta el indice para lista tipo double
 	LOOP suma 			;descuenta el registro cx hasta recorrer la base
 	INC iaux_val
-	JMP ceros_abajo
+	JMP ceros_abajo			;continua eliminando los ceros debajo del 1
 siguiente:
 	INC ebx
 	JMP while1
+
 end_while1:
 	MOV ecx, 1
 ceros_arriba:
 	CMP ecx, h
 	JG fin
-	MOV iaux_val, ecx		;k fila inferior
+	MOV iaux_val, ecx
 	MOV eax, h
 	SUB eax, iaux_val
-	MOV p_auxy, eax			;fila inferior
+	MOV p_auxy, eax			;indice de la fila inferior
 	INC ecx
 alreves:
 	CMP ecx, h
 	JG fin_alreves
-	MOV iaux_val1, ecx		;l fila superior
-	MOV eax, h
-	SUB eax, iaux_val1
-	MOV pointery, eax		;actualiza fila superior
-	MOV ecx, w			;tener encuenta en caso de val extraños
-	MOV esi, 00h
-asignar_aux1:				;toda la fila inferior
-	MOV edi, esi
-	MOV eax, 08h
-	MUL w
-	MUL p_auxy ;
-	MOV esi, eax
-	ADD esi, edi
-	FLD matrix[esi]
-	FSTP aux[edi]
-	MOV esi, edi
-	ADD esi, 08h
-	LOOP asignar_aux1
-	MOV eax, 08h
-	MUL w
-	MUL pointery
-	MOV iaux_val2, eax
-	MOV eax, 08h
-	MUL p_auxy
-	ADD eax, iaux_val2
-	MOV esi, eax
-	FLD matrix[esi]
-	FLD negativo
-	FMUL
-	FSTP c_mul
-	MOV esi, 00h 			;reinicia el indice del registro esi para iniciar desde cero
-	MOV ecx, w        		;reinicia el valor del contador con el ancho de columna
-multiplicacion2:   			;marca de inicio para la multiplicacion de una lista por una constante
-	FLD c_mul		    	;apila el valor de la constante para multiplicar con el valor de la matriz
-	FLD aux[esi]    		;apila el valor de la matriz para multiplicar con la constante
-	FMUL				;multiplica la constante por el valor apilado de la matriz
-	FSTP aux[esi]			;desapilamos en la matriz el resultado de la multiplicacion
-	ADD esi, 08h			;aumenta el indice para la liste de tipo double
-	LOOP multiplicacion2 		;decrementa el registro ecx y luego verifica que sea distinto de cero
-	MOV ecx, w	 		;reinicia el valor del contador con el ancho de columna
-	MOV esi, 00h 			;el indice es cero para acceder desde el inicio a aux y aux1
-suma1: 					;marca de inicio para la suma de dos listas
-	MOV edi, esi
-	MOV eax, 08h
-	MUL w
-	MUL pointery
-	MOV esi, eax
-	ADD esi, edi
-	FLD matrix[esi]
-	FLD aux[edi] 			;apila el valor de aux para sumarlo con aux1
-	FADD
-	FSTP matrix[esi] 		;guarda la suma en el aux
-	MOV esi, edi
-	ADD esi, 08h 			;aumenta el indice para lista tipo double
-	LOOP suma1			;descuenta el registro cx hasta recorrer la base
+	  MOV iaux_val1, ecx
+	  MOV eax, h
+	  SUB eax, iaux_val1
+	  MOV pointery, eax		;indice fila superior
+
+	  MOV ecx, w
+	  MOV esi, 00h
+asignar_aux1:
+	  MOV edi, esi
+	  MOV eax, 08h
+	  MUL w
+	  MUL p_auxy ;
+	  MOV esi, eax
+	  ADD esi, edi
+	  FLD matrix[esi]		;remplaza elemento de la fila inferior o la actual en el arreglo aux
+	  FSTP aux[edi]
+	  MOV esi, edi
+	  ADD esi, 08h
+	  LOOP asignar_aux1
+	  
+	  MOV eax, 08h
+	  MUL w
+	  MUL pointery
+	  MOV iaux_val2, eax
+	  MOV eax, 08h
+	  MUL p_auxy
+	  ADD eax, iaux_val2
+	  MOV esi, eax
+	  FLD matrix[esi]		;se apila el elemento de la fila superior que esta arriba del 1
+	  FLD negativo
+	  FMUL
+	  FSTP c_mul 
+	  MOV esi, 00h
+	  MOV ecx, w
+multiplicacion2:
+	  FLD c_mul
+	  FLD aux[esi]
+	  FMUL
+	  FSTP aux[esi]	
+	  ADD esi, 08h
+	  LOOP multiplicacion2
+	
+	  MOV ecx, w
+	  MOV esi, 00h
+suma1:
+	  MOV edi, esi
+	  MOV eax, 08h
+	  MUL w
+	  MUL pointery
+	  MOV esi, eax
+	  ADD esi, edi
+	  FLD matrix[esi]
+	  FLD aux[edi]
+	  FADD
+	  FSTP matrix[esi]		;suma aux con la fila superior para hacer cero el elemento arriba del 1
+	  MOV esi, edi
+	  ADD esi, 08h
+	  LOOP suma1
 	MOV ecx, iaux_val1
 	INC ecx
 	JMP alreves
