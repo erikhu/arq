@@ -1,26 +1,28 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 int main(){
+	cout << "Saludos, bienvenido a este solucionador de matrices NxN\n";
+	cout << "\tArquitectura de Computadores\n";
+	cout << "\t\t  "
 	int h = 3; // # de filas de la matrix
 	int w = 6; // ancho de columna
+	int tira = h*w;
 	double aux_val; // variable que puede ser usada cada que se requiera operar con doble precision
 	int iaux_val; // variable que puede ser usada en cualquier momento que se requiera operar con enteros
 	int iaux_val1;
 	int iaux_val2;
 	int pointery; // se usa para saber la posicion de la fila superior
-	int p_auxy; // la posicion de la fila inferior con la que se quiere intercambiar (este valor siempre debe ser mayor a pointery)
+	int p_auxy; // la posicion de la fila inferior
 	double c_mul; // valor numero que se multiplica con fila
 	int interrupcion = 0;
 	double diagonal;
 	double negativo = -1;
 	double aux[6];
 	double aux1[6];
-	double matrix[18] = {1,1,0,1,0,0,1,0,1,0,1,0,0,1,0,0,0,1};
-
+	double matrix[18] = {1,0,0,1,0,0,-1,2,3,0,1,0,0,1,2,0,0,1};
 	int contador = 0;
 
-	for(int i = 0 ; i < 18 ; i++){
+	for(int i = 0 ; i < tira ; i++){
 		std::cout << matrix[i] << " ";
 		if(contador >= w-1){
 			std::cout << "\n";
@@ -270,9 +272,10 @@ int main(){
 			MOV interrupcion, 1
 		fin:
 		}
+
     //mostrar fila
 		contador = 0;
-		for(int i = 0 ; i < 18; i++){
+		for(int i = 0 ; i < tira; i++){
 		std::cout << matrix[i] << " ";
 			if(contador >= w-1){
 				std::cout << "\n";
@@ -282,15 +285,5 @@ int main(){
 			}
 		}
 
-		std::cout << "aux: \n" ;
-		for(int i = 0; i < 6; i++){
-			std::cout << aux[i] << " ";
-		}
-		std::cout << "\n";
-		cout << "diagonal: " << diagonal << "\n";
-		cout << "pointery: " << pointery << "\n";
-		cout << "p_auxy: " << p_auxy << "\n";
-		cout << "c_mul: " << c_mul << "\n";
-		cout << "interrupcion: " << interrupcion << "\n";
     return 0;
     }
