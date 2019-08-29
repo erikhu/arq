@@ -3,7 +3,7 @@ using namespace std;
 int main(){
 	cout << "Saludos, bienvenido a este solucionador de matrices NxN\n";
 	cout << "\tArquitectura de Computadores\n";
-	cout << "\t\t  "
+	cout << "\t\t 2019-1 ";
 	int h = 3; // # de filas de la matrix
 	int w = 6; // ancho de columna
 	int tira = h*w;

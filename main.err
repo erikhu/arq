@@ -1,6 +1,16 @@
-main.cpp(137): Warning! W894: col(97) unexpected character (195) in source file
-main.cpp(137): Warning! W894: col(98) unexpected character (177) in source file
-main.cpp(211): Warning! W894: col(89) unexpected character (195) in source file
-main.cpp(211): Warning! W894: col(90) unexpected character (177) in source file
-main.cpp(297): Warning! W014: col(5) no reference to symbol 'aux1'
-main.cpp(20): Note! N392: col(16) definition: 'double aux1[6]' in 'int main( void )'
+main.cpp(7): Error! E006: col(9) syntax error; probable cause: missing ';'
+main.cpp(9): Error! E029: col(20) symbol 'h' has not been declared
+main.cpp(40): Error! E605: col(129) assembler: 'Operands must be the same size'
+main.cpp(58): Error! E605: col(50) assembler: 'Operands must be the same size'
+main.cpp(107): Error! E605: col(66) assembler: 'Operands must be the same size'
+main.cpp(135): Error! E605: col(50) assembler: 'Operands must be the same size'
+main.cpp(138): Warning! W894: col(97) unexpected character (195) in source file
+main.cpp(138): Warning! W894: col(98) unexpected character (177) in source file
+main.cpp(198): Error! E605: col(34) assembler: 'Operands must be the same size'
+main.cpp(201): Error! E605: col(34) assembler: 'Operands must be the same size'
+main.cpp(206): Error! E605: col(42) assembler: 'Operands must be the same size'
+main.cpp(209): Error! E605: col(50) assembler: 'Operands must be the same size'
+main.cpp(212): Warning! W894: col(89) unexpected character (195) in source file
+main.cpp(212): Warning! W894: col(90) unexpected character (177) in source file
+main.cpp(289): Warning! W014: col(5) no reference to symbol 'aux1'
+main.cpp(21): Note! N392: col(16) definition: 'double aux1[6]' in 'int main( void )'
