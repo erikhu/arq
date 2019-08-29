@@ -1,11 +1,11 @@
 #include <iostream>
-#include <vector>
+#include <conio.h>
+
 using namespace std;
 int main(){
 	int h; // # de filas de la matrix
 	int w; // ancho de columna
-	std::vector<double> temp;
-	cout << "\n\n\nSaludos, bienvenido a este programa";
+	cout << "\n\n\nSaludos, bienvenido a este programa\n";
 	cout << "Arquitectura de Computadores 2019-1\n";
 	cout << "Alumnos: Erik Alexander Gonzalez Cardona / Andres Felipe Cadena Velez \n";
 	cout << "Este es un solucionador de matrices NxN con N > 1 y N <= 5 que utiliza el metodo de la matriz \n";
@@ -20,14 +20,15 @@ int main(){
 	double matrix[50];
 	int contador = 0;
 	int i_independiente = 0;
-
+	cout << "Para la ecuacion 1 \n";
 	for(int i = 0; i < tira; ++i){
+
 		if(contador < h){
-			cout << "ingrese un valor de coeficiente: ";
+			cout << "Ingrese el coeficiente(" << contador + 1 << "): ";
 			cin >> matrix[i];
 			++contador;
 		}else{
-			cout << "\n ingrese termino independiente: ";
+			cout << "\nIngrese el termino independiente: ";
 			cin >> independientes[i_independiente];
 			for(int i2 = 0; i2 < h; ++i2){
 				if(i_independiente == i2){
@@ -39,6 +40,7 @@ int main(){
 			++i_independiente;
 			contador = 0;
 			i = i + (h-1);
+			cout << "\nPara la ecuacion " << i_independiente+1 << "\n";
 		}
 	}
 
@@ -318,6 +320,15 @@ int main(){
 				contador = contador + 1;
 			}
 		}
+
+		if(interrupcion != 0){
+				cout << "No tiene solucion\n";
+		}else{
+				cout << "tiene solucion\n";
+		}
+		cout << "El programa a finalizado. \nHasta luego \n";
+		char c = 565;
+		c = getch();
 
     return 0;
     }
