@@ -1,5 +1,3 @@
-main.cpp(248): Warning! W894: col(77) unexpected character (195) in source file
-main.cpp(248): Warning! W894: col(78) unexpected character (177) in source file
-main.cpp(330): Warning! W388: col(11) integral constant will be truncated during assignment or initialization
-main.cpp(334): Warning! W014: col(1) no reference to symbol 'aux1'
+main.cpp(364): Warning! W388: col(11) integral constant will be truncated during assignment or initialization
+main.cpp(368): Warning! W014: col(1) no reference to symbol 'aux1'
 main.cpp(17): Note! N392: col(10) definition: 'double aux1[10]' in 'int main( void )'

@@ -38,7 +38,9 @@ int main(){
       ++i_independiente;
       contador = 0;
       i = i + (h-1);
-      cout << "\nPara la ecuacion " << i_independiente+1 << "\n";
+      if(i+1 < tira){
+        cout << "\nPara la ecuacion " << i_independiente+1 << "\n";
+      }
 		}
 	}
   contador = 0;
@@ -52,16 +54,6 @@ int main(){
   int interrupcion = 0;
   double diagonal;
   double negativo = -1;
-
-  for(int i = 0 ; i < tira ; i++){
-    std::cout << matrix[i] << " ";
-    if(contador >= w-1){
-      std::cout << "\n";
-      contador = 0;
-    }else{
-      contador = contador + 1;
-    }
-  }
   contador = 0;
   std::cout << "\n";
   _asm {
@@ -85,7 +77,7 @@ while1:
 	SAHF
 	JNE end_if1			;si el valor matrix[i][i] es cero continua para intercambiar con otra fila
 	  MOV pointery, ebx		;indice para la fila superior
-	  FFREE st(0)											
+	  FFREE st(0)
 	  MOV eax, h
 	  DEC eax
 	  CMP ebx, eax
@@ -109,8 +101,8 @@ filas_abajo:
 	FSTP diagonal
 	MOV p_auxy, ecx
 	MOV eax, 08h
-	MUL w				
-	MUL pointery 
+	MUL w
+	MUL pointery
 	MOV esi, eax			;direccion de la fila superior
 	MOV ecx, w
 intercambio:
@@ -154,7 +146,7 @@ end_if1:				;pasa a convertir en 1 la diagonal
 	MUL w
 	MUL ebx
 	MOV esi, eax			;direccion en la matriz de la fila actual
-	MOV ecx, w 
+	MOV ecx, w
 multiplicacion:
 	FLD c_mul
 	FLD matrix[esi]
@@ -169,7 +161,7 @@ ceros_abajo:
 	MOV eax, h
 	CMP iaux_val, eax
 	JGE siguiente
-	
+
 	MOV ecx, w
 	MOV esi, 00h
 asignar_aux:				;toda la fila superior en aux para luego operar
@@ -184,7 +176,7 @@ asignar_aux:				;toda la fila superior en aux para luego operar
 	MOV esi, edi
 	ADD esi, 08h
 	LOOP asignar_aux
-	
+
 	MOV eax, 08h
 	MUL w
 	MUL iaux_val
@@ -233,7 +225,7 @@ end_while1:
 	MOV ecx, 1
 ceros_arriba:
 	CMP ecx, h
-	JG fin
+	JG fin_ceros_arriba
 	MOV iaux_val, ecx
 	MOV eax, h
 	SUB eax, iaux_val
@@ -261,7 +253,7 @@ asignar_aux1:
 	  MOV esi, edi
 	  ADD esi, 08h
 	  LOOP asignar_aux1
-	  
+
 	  MOV eax, 08h
 	  MUL w
 	  MUL pointery
@@ -273,17 +265,17 @@ asignar_aux1:
 	  FLD matrix[esi]		;se apila el elemento de la fila superior que esta arriba del 1
 	  FLD negativo
 	  FMUL
-	  FSTP c_mul 
+	  FSTP c_mul
 	  MOV esi, 00h
 	  MOV ecx, w
 multiplicacion2:
 	  FLD c_mul
 	  FLD aux[esi]
 	  FMUL
-	  FSTP aux[esi]	
+	  FSTP aux[esi]
 	  ADD esi, 08h
 	  LOOP multiplicacion2
-	
+
 	  MOV ecx, w
 	  MOV esi, 00h
 suma1:
@@ -307,29 +299,67 @@ fin_alreves:
 	MOV ecx, iaux_val
 	INC ecx
 	JMP ceros_arriba
-	JMP fin
+
+fin_ceros_arriba:
+
+  MOV ecx, w
+  MOV esi, 00h
+en_ceros:
+  FLDZ		;hace ceros todo el arreglo aux
+  FSTP aux[esi]
+  ADD esi, 08h
+  LOOP en_ceros
+
+  MOV ebx, 0
+while2:
+	CMP ebx, h
+	JGE fin
+	  MOV esi, 00h
+	  MOV ecx, h
+mul_matrices:
+	  MOV edi, esi			;direccion del elemento del arreglo independientes
+	  MOV eax, 08h
+	  MUL w
+	  MUL ebx
+	  MOV iaux_val, eax
+	  MOV eax, 08h
+	  MUL h
+	  ADD eax, iaux_val
+	  MOV esi, eax
+	  ADD esi, edi			;direccion del elemento analogo al arreglo independientes en la matriz invertida
+	  FLD matrix[esi]
+	  FLD independientes[edi]
+	  FMUL
+    MOV eax, 08h
+    MUL ebx
+    MOV esi, eax
+	  FLD aux[esi]
+	  FADD
+	  FSTP aux[esi]
+	  MOV esi, edi
+	  ADD esi, 08h
+    MOV iaux_val, ecx
+	  LOOP mul_matrices
+fin_mul_matrices:
+	INC ebx
+	JMP while2
 error:
 	MOV interrupcion, 1
 fin:
 		}
 
-   //mostrar fila
-   contador = 0;
-   for(int i = 0 ; i < tira; i++){
-     std::cout << matrix[i] << " ";
-     if(contador >= w-1){
-       std::cout << "\n";
-       contador = 0;
-     }else{
-       contador = contador + 1;
-     }
-   }
-
    if(interrupcion != 0){
      cout << "No tiene solucion\n";
    }else{
-     cout << "tiene solucion\n";
+     cout << "La solucion es: \n";
+     cout << "[";
+     for(int i = 0; i < h; i++){
+	     cout << aux[i] << " ";
+     }
+     cout << "]";
+     cout << "\n";
    }
+
    cout << "El programa a finalizado. \nHasta luego \n";
    char c = 565;
    c = getch();
