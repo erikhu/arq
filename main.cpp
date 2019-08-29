@@ -1,12 +1,49 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main(){
-	cout << "Saludos, bienvenido a este solucionador de matrices NxN\n";
-	cout << "\tArquitectura de Computadores\n";
-	cout << "\t\t 2019-1 ";
-	int h = 3; // # de filas de la matrix
-	int w = 6; // ancho de columna
+	int h; // # de filas de la matrix
+	int w; // ancho de columna
+	std::vector<double> temp;
+	cout << "\n\n\nSaludos, bienvenido a este programa";
+	cout << "Arquitectura de Computadores 2019-1\n";
+	cout << "Alumnos: Erik Alexander Gonzalez Cardona / Andres Felipe Cadena Velez \n";
+	cout << "Este es un solucionador de matrices NxN con N > 1 y N <= 5 que utiliza el metodo de la matriz \n";
+	cout << "inversa de gauss \n -------------------------------------- \n ";
+	cout << "Ingrese por favor el numero de ecuaciones (N): ";
+	cin >> h;
+	w = h * 2;
 	int tira = h*w;
+	double aux[10];
+	double aux1[10];
+	double independientes[5];
+	double matrix[50];
+	int contador = 0;
+	int i_independiente = 0;
+
+	for(int i = 0; i < tira; ++i){
+		if(contador < h){
+			cout << "ingrese un valor de coeficiente: ";
+			cin >> matrix[i];
+			++contador;
+		}else{
+			cout << "\n ingrese termino independiente: ";
+			cin >> independientes[i_independiente];
+			for(int i2 = 0; i2 < h; ++i2){
+				if(i_independiente == i2){
+					matrix[i+i2] = 1;
+				}else{
+					matrix[i+i2] = 0;
+				}
+			}
+			++i_independiente;
+			contador = 0;
+			i = i + (h-1);
+		}
+	}
+
+	contador = 0;
+
 	double aux_val; // variable que puede ser usada cada que se requiera operar con doble precision
 	int iaux_val; // variable que puede ser usada en cualquier momento que se requiera operar con enteros
 	int iaux_val1;
@@ -17,10 +54,6 @@ int main(){
 	int interrupcion = 0;
 	double diagonal;
 	double negativo = -1;
-	double aux[6];
-	double aux1[6];
-	double matrix[18] = {1,0,0,1,0,0,-1,2,3,0,1,0,0,1,2,0,0,1};
-	int contador = 0;
 
 	for(int i = 0 ; i < tira ; i++){
 		std::cout << matrix[i] << " ";
@@ -31,6 +64,7 @@ int main(){
 			contador = contador + 1;
 		}
 	}
+
 	contador = 0;
 	std::cout << "\n";
 	  _asm {
