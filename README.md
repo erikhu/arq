@@ -10,8 +10,12 @@ sistemas GNU/Linux.
 * File -> Open Project y se busca el archivo arq.wpj
 * Una vez abierto el proyecto se presion la tecla F5 y el proyecto compila 
 de esta manera actualiza o genera un nuevo archivo arq.exe
-* Para ejecutarlo se debe abrir el cmd y correrlo desde ahi
-
+## Ejecucion
+Por cmd
+* Para ejecutarlo se debe abrir el cmd y se dirije a la carpeta para correr desde ahi arq.exe
+Por Open watcom
+* Actions -> Run
+* Se abre una ventana y escribe arq.exe
 
 Notas: 
 * Puede que si se abra el archivo main.cpp desde otro editor diferente a vim 
