@@ -20,7 +20,7 @@ int main(){
 
 	int contador = 0;
 
-	for(int i = 0 ; i < 32; i++){
+	for(int i = 0 ; i < 18 ; i++){
 		std::cout << matrix[i] << " ";
 		if(contador >= w-1){
 			std::cout << "\n";
@@ -192,6 +192,7 @@ int main(){
 		end_while1:
 
 		MOV ecx, h
+		DEC ecx
 		ceros_arriba:
 			CMP ecx,1
 			JLE fin
@@ -266,7 +267,7 @@ int main(){
 		}
     //mostrar fila
 		contador = 0;
-		for(int i = 0 ; i < 32; i++){
+		for(int i = 0 ; i < 18; i++){
 		std::cout << matrix[i] << " ";
 			if(contador >= w-1){
 				std::cout << "\n";
