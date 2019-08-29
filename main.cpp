@@ -16,7 +16,7 @@ int main(){
 	double negativo = -1;
 	double aux[6];
 	double aux1[6];
-	double matrix[18] = {1,0,0,1,0,0,-1,2,3,0,1,0,0,1,2,0,0,1};
+	double matrix[18] = {1,1,0,1,0,0,1,0,1,0,1,0,0,1,0,0,0,1};
 
 	int contador = 0;
 
@@ -191,74 +191,79 @@ int main(){
 				JMP while1
 		end_while1:
 
-		MOV ecx, h
-		DEC ecx
+		MOV ecx, 1
 		ceros_arriba:
-			CMP ecx,1
-			JLE fin
+			CMP ecx, h
+			JG fin
 			MOV iaux_val, ecx; k fila inferior
-			DEC ecx
-			MOV iaux_val1, ecx; l fila superior
+			MOV eax, h
+			SUB eax, iaux_val
+			MOV p_auxy, eax; fila inferior
+			INC ecx
 			alreves:
-				CMP ecx, 0
-				JLE fin_alreves
-				MOV ecx, w ; tener encuenta en caso de val extraños
-				MOV esi, 00h
-				asignar_aux1: ; toda la fila inferior
-					MOV edi, esi
+				CMP ecx, h
+				JG fin_alreves
+					MOV iaux_val1, ecx; l fila superior
+					MOV eax, h
+					SUB eax, iaux_val1
+					MOV pointery, eax ; actualiza fila superior
+					MOV ecx, w ; tener encuenta en caso de val extraños
+					MOV esi, 00h
+					asignar_aux1: ; toda la fila inferior
+						MOV edi, esi
+						MOV eax, 08h
+						MUL w
+						MUL p_auxy ;
+						MOV esi, eax
+						ADD esi, edi
+						FLD matrix[esi]
+						FSTP aux[edi]
+						MOV esi, edi
+						ADD esi, 08h
+						LOOP asignar_aux1
 					MOV eax, 08h
 					MUL w
-					MUL iaux_val
-					MOV esi, eax
-					ADD esi, edi
-					FLD matrix[esi]
-					FSTP aux[edi]
-					MOV esi, edi
-					ADD esi, 08h
-					LOOP asignar_aux1
-				MOV eax, 08h
-				MUL w
-				MUL iaux_val1
-				MOV iaux_val2, eax
-				MOV eax, 08h
-				MUL iaux_val
-				ADD eax, iaux_val2
-				MOV esi, eax
-				FLD matrix[esi]
-				FLD negativo
-				FMUL
-				FSTP c_mul
-				MOV esi, 00h 							;reinicia el indice del registro esi para iniciar desde cero
-				MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
-				multiplicacion2:   				;marca de inicio para la multiplicacion de una lista por una constante
-					FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
-					FLD aux[esi]    				;apila el valor de la matriz para multiplicar con la constante
-					FMUL										;multiplica la constante por el valor apilado de la matriz
-					FSTP aux[esi]						;desapilamos en la matriz el resultado de la multiplicacion
-					ADD esi, 08h						;aumenta el indice para la liste de tipo double
-					LOOP multiplicacion2 		;decrementa el registro ecx y luego verifica que sea distinto de cero
-				MOV ecx, w	 							;reinicia el valor del contador con el ancho de columna
-				MOV esi, 00h 							;el indice es cero para acceder desde el inicio a aux y aux1
-				suma1: 										;marca de inicio para la suma de dos listas
-					MOV edi, esi
+					MUL pointery
+					MOV iaux_val2, eax
 					MOV eax, 08h
-					MUL w
-					MUL iaux_val1
+					MUL p_auxy
+					ADD eax, iaux_val2
 					MOV esi, eax
-					ADD esi, edi
 					FLD matrix[esi]
-					FLD aux[edi] 						;apila el valor de aux para sumarlo con aux1
-					FADD
-					FSTP matrix[esi] 					;guarda la suma en el aux
-					MOV esi, edi
-					ADD esi, 08h 						;aumenta el indice para lista tipo double
-					LOOP suma1							;descuenta el registro cx hasta recorrer la base
-				MOV ecx, iaux_val1
-				DEC ecx
-				JMP alreves
+					FLD negativo
+					FMUL
+					FSTP c_mul
+					MOV esi, 00h 							;reinicia el indice del registro esi para iniciar desde cero
+					MOV ecx, w        				;reinicia el valor del contador con el ancho de columna
+					multiplicacion2:   				;marca de inicio para la multiplicacion de una lista por una constante
+						FLD c_mul		    				;apila el valor de la constante para multiplicar con el valor de la matriz
+						FLD aux[esi]    				;apila el valor de la matriz para multiplicar con la constante
+						FMUL										;multiplica la constante por el valor apilado de la matriz
+						FSTP aux[esi]						;desapilamos en la matriz el resultado de la multiplicacion
+						ADD esi, 08h						;aumenta el indice para la liste de tipo double
+						LOOP multiplicacion2 		;decrementa el registro ecx y luego verifica que sea distinto de cero
+					MOV ecx, w	 							;reinicia el valor del contador con el ancho de columna
+					MOV esi, 00h 							;el indice es cero para acceder desde el inicio a aux y aux1
+					suma1: 										;marca de inicio para la suma de dos listas
+						MOV edi, esi
+						MOV eax, 08h
+						MUL w
+						MUL pointery
+						MOV esi, eax
+						ADD esi, edi
+						FLD matrix[esi]
+						FLD aux[edi] 						;apila el valor de aux para sumarlo con aux1
+						FADD
+						FSTP matrix[esi] 					;guarda la suma en el aux
+						MOV esi, edi
+						ADD esi, 08h 						;aumenta el indice para lista tipo double
+						LOOP suma1							;descuenta el registro cx hasta recorrer la base
+					MOV ecx, iaux_val1
+					INC ecx
+					JMP alreves
 			fin_alreves:
 				MOV ecx, iaux_val
-				DEC ecx
+			 	INC ecx
 			 	JMP ceros_arriba
 			JMP fin
 		error:
@@ -278,7 +283,7 @@ int main(){
 		}
 
 		std::cout << "aux: \n" ;
-		for(int i = 0; i < 8; i++){
+		for(int i = 0; i < 6; i++){
 			std::cout << aux[i] << " ";
 		}
 		std::cout << "\n";
