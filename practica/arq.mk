@@ -1,3 +1,3 @@
-project : "Z:\home\erik\proyectos\c++\arq\arq.exe" .SYMBOLIC
+project : "Z:\home\erik\proyectos\c++\arq\practica\arq.exe" .SYMBOLIC
 
-!include "Z:\home\erik\proyectos\c++\arq\arq.mk1"
+!include "Z:\home\erik\proyectos\c++\arq\practica\arq.mk1"

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+#include <stdio.h>
 using namespace std;
 int main(){
   const int MAX_COLUMNAS = 10;
@@ -363,7 +363,7 @@ fin:
 
    cout << "El programa a finalizado. \nHasta luego \n";
    char c = 565;
-   c = getch();
+   c = getchar();
 
    return 0;
 }

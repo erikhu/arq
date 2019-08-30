@@ -1,15 +1,15 @@
 !define BLANK ""
-"Z:\home\erik\proyectos\c++\arq\main.obj" : "Z:\home\erik\proyectos\c++\arq\&
-main.cpp" .AUTODEPEND
+"Z:\home\erik\proyectos\c++\arq\practica\main.obj" : "Z:\home\erik\proyectos&
+\c++\arq\practica\main.cpp" .AUTODEPEND
  @Z:
- cd Z:\home\erik\proyectos\c++\arq
+ cd Z:\home\erik\proyectos\c++\arq\practica
  *wpp386 main.cpp -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -&
 bt=nt -fo=.obj -mf -xs -xr
 
-"Z:\home\erik\proyectos\c++\arq\arq.exe" : "Z:\home\erik\proyectos\c++\arq\m&
-ain.obj" .AUTODEPEND
+"Z:\home\erik\proyectos\c++\arq\practica\arq.exe" : "Z:\home\erik\proyectos\&
+c++\arq\practica\main.obj" .AUTODEPEND
  @Z:
- cd Z:\home\erik\proyectos\c++\arq
+ cd Z:\home\erik\proyectos\c++\arq\practica
  @%write arq.lk1 FIL main.obj
  @%append arq.lk1 
 !ifneq BLANK ""
