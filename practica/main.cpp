@@ -8,9 +8,7 @@ int main(){
   int h; // # de filas de la matrix
   int w; // ancho de columna
   cout << "\n\n\nSaludos, bienvenido a este programa\n";
-  cout << "Arquitectura de Computadores 2019-1\n";
-  cout << "Alumnos: Erik Alexander Gonzalez Cardona / Andres Felipe Cadena Velez \n";
-  cout << "Este es un solucionador de matrices NxN con N > 1 y N <= 5 que utiliza el metodo de la matriz \n";
+  cout << "Este es un solucionador de matrices NxN que utiliza el metodo de la matriz \n";
   cout << "inversa de gauss \n -------------------------------------- \n ";
   cout << "Ingrese por favor el numero de ecuaciones (N): ";
   cin >> h;
