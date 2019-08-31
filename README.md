@@ -5,7 +5,7 @@ Para poder crear aplicaciones para windows desde
 sistemas GNU/Linux.
 
 Metodo de gauss jordan con matrices inversas para encontrar la solucion de las variables,
-esta existe. Practica de ensamblador con sintaxis intel.
+si existe dicha solucion. Practica de ensamblador con sintaxis intel.
 
 ## Como compilar el proyecto desde Open watcom v2 IDE
 * Abrir el IDE de Open watcom
