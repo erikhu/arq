@@ -1,9 +1,11 @@
 # SOLUCIONADOR DE MATRICES NXN
-## metodo de gauss con matrices inversas
 
 Este proyecto fue creado con [Open watcom v2](https://github.com/open-watcom/open-watcom-v2)
 Para poder crear aplicaciones para windows desde
 sistemas GNU/Linux.
+
+Metodo de gauss jordan con matrices inversas para encontrar la solucion de las variables,
+esta existe. Practica de ensamblador con sintaxis intel.
 
 ## Como compilar el proyecto desde Open watcom v2 IDE
 * Abrir el IDE de Open watcom
@@ -19,7 +21,6 @@ Por Open watcom
 * Actions -> Run
 * Se abre una ventana y escribe arq.exe
 
-Notas: 
-* Puede que si se abra el archivo main.cpp desde otro editor diferente a vim 
-la identacion de los comentarios se arruine.
-* Desde github se ve correctamente indentado tambien el archivo main.cpp 
+## Importante
+Esta limitado a solucionas matrices de hasta 5x5 pero se puede cambiar para que solucione matrices mucho mas grandes.
+Para esto se deben cambian las constantes MAX_FILAS como el numero de filas para la matriz maxima a la cual se quiere solucionar, MAX_COLUMNAS como el numero maximo de columnas que deben ser el doble de MAX_FILAS, y MAX_TIRA el maximo tamana de elementos que tendra la matriz que ese MAX_COLUMNAS * MAX_FILAS. Asi se puede actualizar para que solucione matrices mucho mayores a 5x5.
